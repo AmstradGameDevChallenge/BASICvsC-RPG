@@ -6,13 +6,13 @@ El desarrollo se hará en directo en los episodios de la serie Amstrad GameDev C
 
 ## EPISODIO 1
 
-Fecha: Martes, 9 de julio de 2019, 21:00h
+**Fecha**: Martes, 9 de julio de 2019, 21:00h
 
-Vídeo: https://www.youtube.com/watch?v=TFEnGYmOOLI
+**Vídeo**: https://www.youtube.com/watch?v=TFEnGYmOOLI
 
-Release del código fuente: https://github.com/AmstradGameDevChallenge/BASICvsC-RPG/archive/agc01.zip
+**Release del código fuente**: https://github.com/AmstradGameDevChallenge/BASICvsC-RPG/archive/agc01.zip
 
-Resumen:
+__Resumen__:
 - Presentación de la serie
 - Herramientas a utilizar y organización
 - Implementado un esquema inicial muy básico de juego y bucle principal emergente, sin apenas estructurar.
@@ -20,7 +20,7 @@ Resumen:
 - Player y enemigo con energía, ataque y defensa
 - Player y enemigo atacan y defienden
 
-Materiales:
+__Materiales__:
 - Solicitud de inscripción a la organización de Github ( http://bit.ly/AGC01 )
 - CPCtelera ( http://lronaldo.github.io/cpctelera/ )
 - CPCtelera 1.5 WIP ( https://github.com/lronaldo/cpctelera/tree/development )
