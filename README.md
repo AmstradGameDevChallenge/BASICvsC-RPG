@@ -7,7 +7,9 @@ El desarrollo se hará en directo en los episodios de la serie Amstrad GameDev C
 ## EPISODIO 1
 
 Fecha: Martes, 9 de julio de 2019, 21:00h
+
 Vídeo: https://www.youtube.com/watch?v=TFEnGYmOOLI
+
 Release del código fuente: https://github.com/AmstradGameDevChallenge/BASICvsC-RPG/archive/agc01.zip
 
 Resumen:
