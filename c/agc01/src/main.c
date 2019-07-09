@@ -14,7 +14,7 @@ void main(void) {
    u8 defense   = 15;
    u8 energyen  = 90;
    u8 attacken  = 20;
-   u8 defenseen = 3;
+   u8 defenseen = 10;
    
    // Let's start!
    printf("RPG GAME\r\n");
@@ -25,17 +25,41 @@ void main(void) {
    while (!cpct_isKeyPressed(Key_Enter)) {
       cpct_scanKeyboard();
    }
-   
-   // CLS
-   putchar(12);
-   
-   // GAME START
-   printf("GAME START\r\n");
-   
-   // Print stats
-   printf("PLAYER [%d] (a%d) (d%d)\r\n", energy,   attack,   defense);
-   printf("ENEMY  [%d] (a%d) (d%d)\r\n", energyen, attacken, defenseen);
-   
+
+   while (1) {
+
+      // CLS
+      putchar(12);
+      
+      // Print stats
+      printf("PLAYER [%d] (a%d) (d%d)\r\n", energy,   attack,   defense);
+      printf("ENEMY  [%d] (a%d) (d%d)\r\n", energyen, attacken, defenseen);
+      
+      // Re scan keyboard
+      cpct_scanKeyboard();
+      
+      while (!cpct_isKeyPressed(Key_A) && !cpct_isKeyPressed(Key_D)) {
+         cpct_scanKeyboard();
+      }
+         
+      // PLAYER ATTACKS!
+      if (cpct_isKeyPressed(Key_A)) {
+         energyen -= attack;
+      } else {
+         // PLAYER DEFENDS!
+         if (cpct_isKeyPressed(Key_D)) {
+            energy += defense;
+         }
+      }
+      
+      // ENEMY DECIDE
+      if (cpct_rand() < 64) {
+         energyen += defenseen;
+      } else {
+         energy -= attacken;
+      }
+   }
+
    // Loop forever
    while (1);
 }
