@@ -10,9 +10,10 @@ El desarrollo se hará en directo en los episodios de la serie Amstrad GameDev C
 
 **Fecha**: Martes, 9 de julio de 2019, 21:00h
 
-[**Vídeo**](https://www.youtube.com/watch?v=TFEnGYmOOLI)
+[**>> Vídeo <<**](https://www.youtube.com/watch?v=TFEnGYmOOLI)
 
-[**Release del código fuente**](https://github.com/AmstradGameDevChallenge/BASICvsC-RPG/archive/agc01.zip)
+[**>> Código fuente <<**](https://github.com/AmstradGameDevChallenge/BASICvsC-RPG/archive/agc01.zip)
+<br/><br/>
 
 __Resumen__:
 - Presentación de la serie
