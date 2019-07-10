@@ -4,13 +4,15 @@ Desarrollo de un juego sencillo de rol en BASIC y C para Amstrad CPC.
 
 El desarrollo se hará en directo en los episodios de la serie Amstrad GameDev Challenge: BASIC vs C. 
 
-## EPISODIO 1
+## EPISODIO 1 
+
+<a href="https://www.youtube.com/watch?v=TFEnGYmOOLI"><img align="left" src="https://github.com/AmstradGameDevChallenge/BASICvsC-RPG/blob/master/materials/scrshots/agc01_teamBASIC_thumb.png" alt="Amstrad GameDev Challenge: BASIC vs C. Episodio 1. #AGC01"/></a>
 
 **Fecha**: Martes, 9 de julio de 2019, 21:00h
 
-**Vídeo**: https://www.youtube.com/watch?v=TFEnGYmOOLI
+[**Vídeo**](https://www.youtube.com/watch?v=TFEnGYmOOLI)
 
-**Release del código fuente**: https://github.com/AmstradGameDevChallenge/BASICvsC-RPG/archive/agc01.zip
+[**Release del código fuente**](https://github.com/AmstradGameDevChallenge/BASICvsC-RPG/archive/agc01.zip)
 
 __Resumen__:
 - Presentación de la serie
