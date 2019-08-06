@@ -13,19 +13,30 @@ struct TEnemy {
   u8 deffense;
   u8 x;
   u8 force;
+  u8 ei;
+  u8 color;
 };
 
 struct TEnemy enemy[3];
 u8 enemies;
+u8 x;
+u8 e, a, d;
+i8 const em[4] = {-1, 1, 1, -1};
 
 void initEnemy(u8 e, u8 a, u8 d) {
    if (enemies < 3) {
       enemy[enemies].energy   = e;
       enemy[enemies].attack   = a;
       enemy[enemies].deffense = d;
+      enemy[enemies].color = enemies + 1;
       enemy[enemies].x = 7 + (enemies * 2);
       enemies++;
    }
+}
+
+void pen(u8 color) {
+   putchar(15);
+   putchar(color);
 }
 
 void locate(u8 x, u8 y) {
@@ -36,11 +47,37 @@ void locate(u8 x, u8 y) {
 
 void renderEnemy(u8 i) {
    locate(enemy[i].x, 6);
+   pen(enemy[i].color);
    putchar(224);
+   pen(1);
 }
 
 u8 FNr(u8 m) {
    return m-3+(cpct_rand()*7/255);
+}
+
+
+void enemyDecide(u8 i) {
+   u8 f;
+   if (enemy[i].x == x+1) {
+      if (cpct_rand() < 64) {
+         f = FNr(enemy[i].deffense);
+         enemy[i].energy += f;
+         locate(1,11);
+         printf("ENEMY DEFENDS WITH FORCE: %d", f);
+      } else {
+         // ENEMY ATTACKS!
+         f = FNr(enemy[i].attack);
+         e -= f;
+         locate(1,11);
+         printf("ENEMY ATTACKS WITH FORCE: %d", f);
+      }
+   } else {
+      // UPDATE ENEMY POSITION
+      enemy[i].x += em[enemy[i].ei];
+      enemy[i].ei++;
+      if (enemy[i].ei > 3) enemy[i].ei = 0;
+   }
 }
 
 void renderString(u8 ch, u8 n) {
@@ -57,12 +94,13 @@ void initMode() {
 }
 
 void main(void) {
-   // Init variables
-   u8 e  = 100, a  = 30, d  = 15, x = 4, f = 0; 
-   u8 ei = 0;
-   i8 em[4] = {-1, 1, 1, -1};
+   // Declare variables
+   u8 f = 0;
    
+   // Init variables
    enemies = 0;
+   x = 4;
+   e  = 100, a  = 30, d  = 15, f = 0;
    
    // Init enemies
    initEnemy(40,  15, 5);
@@ -121,7 +159,14 @@ void main(void) {
                x--;
                locate(1,10);
                f = FNr(a);
-               enemy[0].energy -= f;
+               if (enemy[0].energy > f) {
+                  enemy[0].energy -= f;
+               } else {
+                  // ENEMY DIES!
+                  enemy[0].energy = 0;
+                  cpct_memcpy(&enemy[0], &enemy[enemies-1], sizeof(struct TEnemy));
+                  enemies--;
+               }
                printf("PLAYER ATTACKS WITH FORCE: %d", f);
             }
          } else {
@@ -136,24 +181,8 @@ void main(void) {
       }
       
       // ENEMY DECIDE
-      if (enemy[0].x == x+1) {
-         if (cpct_rand() < 64) {
-            f = FNr(enemy[0].deffense);
-            enemy[0].energy += f;
-            locate(1,11);
-            printf("ENEMY DEFENDS WITH FORCE: %d", f);
-         } else {
-            // ENEMY ATTACKS!
-            f = FNr(enemy[0].attack);
-            e -= f;
-            locate(1,11);
-            printf("ENEMY ATTACKS WITH FORCE: %d", f);
-         }
-      } else {
-         // UPDATE ENEMY POSITION
-         enemy[0].x += em[ei];
-         ei++;
-         if (ei > 3) ei = 0;
+      for (u8 i = 0; i < enemies; i++) {
+         enemyDecide(i);
       }
       
       // Is enter pressed?
