@@ -16,7 +16,7 @@
 1 '--Enemy Attributes (e prefix):
 1 ' ee: enemy energy, ea: enemy attack
 1 ' ed: enemy defense, ex: enemy x-coord
-1 ' en: enemy move status
+1 ' en: enemy move status, ep: enemy pen
 1 '--Enemy General Control(ee prefix):
 1 ' eem: Enemy Max Number
 1 ' eet: Enemy turn
@@ -32,7 +32,7 @@
 1 '
 100 CALL &BBFF:CALL &BB4E:DEFINT a-z
 110 e=100:a=30:d=15:x=5:f=0
-120 eem=3:DIM ee(eem),ea(eem),ed(eem),ex(eem),en(eem)
+120 eem=3:DIM ee(eem),ea(eem),ed(eem),ex(eem),en(eem),ep(eem)
 130 eet=0:een=0:a$=""
 140 DIM m(3):m(0)=-1:m(1)=1:m(2)=1:m(3)=-1
 150 DEF FNr(m)=m-3+(RND*6)
@@ -53,7 +53,8 @@
 340 GOSUB 3200
 1 ' PATCH! eet=0
 350 NEXT:eet=0
-360 PRINT STRING$(20,143):PRINT STRING$(20,127)
+1 ' DRAW FLOOR
+360 LOCATE 1,7:PRINT STRING$(20,143):PRINT STRING$(20,127)
 
 1 ' PLAYER ACTIONS
 400 INPUT"ACTION";a$
@@ -78,7 +79,7 @@
 1110 RETURN
 
 1 ' ENEMY ATTACKS
-1200 f=FNr(ea(eet)):e=e-f:PRINT"ENEMY ATTACKS WITH FORCE:"f
+1200 f=FNr(ea(eet)):e=e-f:PRINT"ENEMY ";:GOSUB 3250:PRINT" ATTACKS WITH FORCE:"f
 1210 RETURN
 
 1 ' ENEMY MOVES
@@ -102,7 +103,7 @@
 3000 IF een=eem THEN RETURN
 1 ' Initialize Enemy number 'een'
 3010 ee(een)=90:ea(een)=20:ed(een)=10
-3020 ex(een)=7+een*2:en(een)=0
+3020 ex(een)=7+een*2:en(een)=0:ep(een)=een+1
 3030 een=een+1
 3040 RETURN
 
@@ -114,7 +115,7 @@
 1 '| 0 | 1 | 2 | 3 |....| eem |
 3100 een=een-1:IF eet=een THEN RETURN
 1 ' Copy enemy 'een' over enemy 'eet'
-3110 ee(eet)=ee(een):ea(eet)=ea(een)
+3110 ee(eet)=ee(een):ea(eet)=ea(een):ep(eet)=ep(een)
 3120 ed(eet)=ed(een):ex(eet)=ex(een):en(eet)=en(een)
 3130 RETURN
 
@@ -123,15 +124,18 @@
 1 ''''''''''''''''''''''''''''''''
 1 '
 3200 LOCATE 1,2+eet
-3210 PRINT"ENEMY"eet"["ee(eet)"](a"ea(eet)")(d"ed(eet)")"
-3220 LOCATE ex(eet),6:PRINT CHR$(225)
+3210 PRINT"ENEMY ";:GOSUB 3250:PRINT"["ee(eet)"](a"ea(eet)")(d"ed(eet)")"
+3220 LOCATE ex(eet),6:GOSUB 3250
 3230 RETURN
+1 ' SUBROUTINE FOR DRAWING ENEMY CHARACTER WITH COLOR
+3250 PEN ep(eet):PRINT CHR$(225);:PEN 1
+3260 RETURN
 
 1 ''''''''''''''''''''''''''''''''
 1 '' ENEMY 'eet' UPDATE
 1 ''''''''''''''''''''''''''''''''
 1 '
-3300 IF ee(eet)<=0THEN PRINT "ENEMY"eet"KILLED":GOSUB 3100
+3300 IF ee(eet)<=0THEN PRINT "ENEMY ";:GOSUB 3250:PRINT" KILLED":GOSUB 3100
 1 ' ENEMY ACTIONS: ATTACK or MOVE
 3310 IF ex(eet)=x+1THEN GOSUB 1200 ELSE GOSUB 1300
 3320 RETURN
