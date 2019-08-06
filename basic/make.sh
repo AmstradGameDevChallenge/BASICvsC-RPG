@@ -1,13 +1,16 @@
 #!/bin/bash
 IDSK=$CPCT_PATH/tools/iDSK-0.13/bin/iDSK
 SOURCE=rpg.bas
-TARGET=rpg.dsk
+TARGET=agc03rpg
 
 # Create DSK
-$IDSK $TARGET -n
+$IDSK ${TARGET}.dsk -n
+
+# Remove comments
+grep -v "^1 '" $SOURCE > ${TARGET}.bas
 
 # CONVERT TO MSDOS
-unix2dos $SOURCE
+unix2dos ${TARGET}.bas
 
 # ADD TO DSK
-$IDSK $TARGET -i $SOURCE -t 0
+$IDSK ${TARGET}.dsk -i ${TARGET}.bas -t 0
