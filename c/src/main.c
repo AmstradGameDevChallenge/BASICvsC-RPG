@@ -7,8 +7,25 @@
 #include <cpctelera.h>
 #include <stdio.h>
 
-u8 FNr(u8 m) {
-   return m-3+(cpct_rand()*7/255);
+struct TEnemy {
+  u8 energy;
+  u8 attack;
+  u8 deffense;
+  u8 x;
+  u8 force;
+};
+
+struct TEnemy enemy[3];
+u8 enemies;
+
+void initEnemy(u8 e, u8 a, u8 d) {
+   if (enemies < 3) {
+      enemy[enemies].energy   = e;
+      enemy[enemies].attack   = a;
+      enemy[enemies].deffense = d;
+      enemy[enemies].x = 7 + (enemies * 2);
+      enemies++;
+   }
 }
 
 void locate(u8 x, u8 y) {
@@ -17,19 +34,44 @@ void locate(u8 x, u8 y) {
    putchar(y);
 }
 
+void renderEnemy(u8 i) {
+   locate(enemy[i].x, 6);
+   putchar(224);
+}
+
+u8 FNr(u8 m) {
+   return m-3+(cpct_rand()*7/255);
+}
+
 void renderString(u8 ch, u8 n) {
    while(n--) {
       putchar(ch);
    }
 }
 
+void initMode() {
+   __asm
+      call #0xBBFF
+      call #0xBB4E
+   __endasm;
+}
+
 void main(void) {
    // Init variables
    u8 e  = 100, a  = 30, d  = 15, x = 4, f = 0; 
-   u8 ee = 90,  ea = 20, ed = 10, ex = 7, ei = 0;
-   
+   u8 ei = 0;
    i8 em[4] = {-1, 1, 1, -1};
-      
+   
+   enemies = 0;
+   
+   // Init enemies
+   initEnemy(40,  15, 5);
+   initEnemy(80,  20, 10);
+   initEnemy(100, 25, 15);
+   
+   // ASM power!
+   initMode();
+   
    // Let's start!
    puts("RPG GAME\r\n\r\nPRESS ENTER TO START");
    
@@ -45,21 +87,22 @@ void main(void) {
       
       // Print stats
       printf("PLAYER [%d] (a%d) (d%d)\r\n", e,   a,   d);
-      printf("ENEMY  [%d] (a%d) (d%d)\r\n", ee, ea, ed);
+      printf("ENEMY  [%d] (a%d) (d%d)\r\n", enemy[0].energy, enemy[0].attack, enemy[0].deffense);
       
       // RENDER PLAYER
       locate(x, 6);
       putchar(250);
       
       // RENDER ENEMY
-      locate(ex, 6);
-      putchar(224);
+      for (u8 i = 0; i < enemies; i++) {
+         renderEnemy(i);
+      }
       
       // RENDER GROUND
       locate(1, 7);
-      renderString(143, 10);
+      renderString(143, 20);
       locate(1, 8);
-      renderString(216, 10);
+      renderString(216, 20);
       
       // Re scan keyboard
       do
@@ -74,11 +117,11 @@ void main(void) {
          if (cpct_isKeyPressed(Key_P)) {
             x++;
             // PLAYER ATTACKS!!
-            if(x == ex) {
+            if(x == enemy[0].x) {
                x--;
                locate(1,10);
                f = FNr(a);
-               ee -= f;
+               enemy[0].energy -= f;
                printf("PLAYER ATTACKS WITH FORCE: %d", f);
             }
          } else {
@@ -93,22 +136,22 @@ void main(void) {
       }
       
       // ENEMY DECIDE
-      if (ex == x+1) {
+      if (enemy[0].x == x+1) {
          if (cpct_rand() < 64) {
-            f = FNr(ed);
-            ee += f;
+            f = FNr(enemy[0].deffense);
+            enemy[0].energy += f;
             locate(1,11);
             printf("ENEMY DEFENDS WITH FORCE: %d", f);
          } else {
             // ENEMY ATTACKS!
-            f = FNr(ea);
+            f = FNr(enemy[0].attack);
             e -= f;
             locate(1,11);
             printf("ENEMY ATTACKS WITH FORCE: %d", f);
          }
       } else {
          // UPDATE ENEMY POSITION
-         ex += em[ei];
+         enemy[0].x += em[ei];
          ei++;
          if (ei > 3) ei = 0;
       }
