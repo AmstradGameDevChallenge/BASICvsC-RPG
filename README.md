@@ -65,7 +65,7 @@ Seguidnos en Twitter: [@FranGallegoBR](https://twitter.com/FranGallegoBR), [@Hec
 [**>> Vídeo <<**](https://www.youtube.com/watch?v=TFEnGYmOOLI)
 
 [**>> Código fuente <<**](https://github.com/AmstradGameDevChallenge/BASICvsC-RPG/archive/agc01.zip)
-<br/><br/>
+<br/><br/><br />
 
 <details><summary><strong>&gt;&gt;&gt; Detalles del episodio &lt;&lt;&lt;</strong></summary>
 <ul>
@@ -78,7 +78,7 @@ Seguidnos en Twitter: [@FranGallegoBR](https://twitter.com/FranGallegoBR), [@Hec
   </ul>
 </details>
 
-### Materiales
+# Materiales
 
 - [Solicitud de inscripción a la organización de Github](http://bit.ly/AGC01)
 - [CPCtelera](http://lronaldo.github.io/cpctelera/)
