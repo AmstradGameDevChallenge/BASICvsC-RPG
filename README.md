@@ -67,15 +67,19 @@ Seguidnos en Twitter: [@FranGallegoBR](https://twitter.com/FranGallegoBR), [@Hec
 [**>> Código fuente <<**](https://github.com/AmstradGameDevChallenge/BASICvsC-RPG/archive/agc01.zip)
 <br/><br/>
 
-__Resumen__:
-- Presentación de la serie
-- Herramientas a utilizar y organización
-- Implementado un esquema inicial muy básico de juego y bucle principal emergente, sin apenas estructurar.
-- Primeros pasos con variables
-- Player y enemigo con energía, ataque y defensa
-- Player y enemigo atacan y defienden
+<details><summary><strong>&gt;&gt;&gt; Detalles del episodio &lt;&lt;&lt;</strong></summary>
+<ul>
+<li>Presentación de la serie
+  </li><li>Herramientas a utilizar y organización
+  </li><li>Implementado un esquema inicial muy básico de juego y bucle principal emergente, sin apenas estructurar.
+  </li><li>Primeros pasos con variables
+  </li><li>Player y enemigo con energía, ataque y defensa
+  </li><li>Player y enemigo atacan y defienden
+  </ul>
+</details>
 
-__Materiales__:
+### Materiales
+
 - [Solicitud de inscripción a la organización de Github](http://bit.ly/AGC01)
 - [CPCtelera](http://lronaldo.github.io/cpctelera/)
 - [CPCtelera 1.5 WIP](https://github.com/lronaldo/cpctelera/tree/development)
