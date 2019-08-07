@@ -2,7 +2,7 @@
 
 Desarrollo en directo de un juego de rol en BASIC y C para Amstrad CPC. 
 
-Seguidnos en Twitter: [@FranGallegoBR](https://twitter.com/FranGallegoBR), [@Hec_Linares](https://twitter.com/Hec_Linares), [#TeamBASIC](https://twitter.com/hashtag/TeamBASIC), [#TeamC](https://twitter.com/hashtag/TeamC), [#AGC01](https://twitter.com/hashtag/AGC01)
+Seguidnos en Twitter: [@FranGallegoBR](https://twitter.com/FranGallegoBR), [@Hec_Linares](https://twitter.com/Hec_Linares), [#TeamBASIC](https://twitter.com/hashtag/TeamBASIC), [#TeamC](https://twitter.com/hashtag/TeamC), [#AmstradGameDevChallenge](https://twitter.com/hashtag/AmstradGameDevChallenge)
 
 ## EPISODIO 2 [#AGC02](https://twitter.com/hashtag/AGC02)
 
