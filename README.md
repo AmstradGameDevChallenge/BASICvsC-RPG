@@ -13,7 +13,47 @@ Seguidnos en Twitter: [@FranGallegoBR](https://twitter.com/FranGallegoBR), [@Hec
 [**>> Vídeo <<**](https://www.youtube.com/watch?v=ezUGwy-jelE)
 
 [**>> Código fuente <<**](https://github.com/AmstradGameDevChallenge/BASICvsC-RPG/archive/agc03.zip)
-<br/><br/>
+<br/><br/><br/>
+
+<details><summary><strong>&gt;&gt;&gt; Contenidos detallados &lt;&lt;&lt;</strong></summary>
+<ul>
+  <li><b>Noticias</b>:</li>
+  <ul>
+    <li>Actualización en <a href="https://github.com/lronaldo/cpctelera/tree/development" rel="nofollow">CPCtelera 1.5 WIP</a>: Inclusión de soporte para STDC getchar()
+    </li><li>#AmstradGameDevChallenge estará presente en <a href="http://www.retrozaragoza.com" rel="nofollow">RetroZaragoza 2019</a>: grabaremos un episodio en directo en persona.
+  </ul>
+  <li><b>Recomendación</b>: temática para los juegos RPG sobre leyendas reales de Castillos, Monasterios, Pueblos o lugares de la geografía española.
+  </li><li><b>Preguntas y proyectos de los miembros del grupo</b>:</li>
+  <ul>
+    <li>Problema con la inicialización de variables globales en SDCC: no se les asigna valor.
+    </li><li>Soluciones para variables globales: funciones de inicialización, valores constantes y punteros no constantes y copia de valores con <code>cpct_memcpy</code>
+    </li><li>Sugerencia de uso de <code>grep</code> para eliminar los comentarios en BASIC.
+    </li><li>Problema con <code>.gitignore</code> y la carpeta <code>obj/</code>
+    </li><li>¿Cómo se puede hacer <code>SYMBOL AFTER</code> en C?
+    </li><li>Apreciaciones sobre el uso de <code>cpct_setVideoMode</code>, el firmware y las funciones de CPCtelera.
+    </li><li>Detalles a tener en cuenta en el uso de <code>OPENIN</code> y <code>OPENOUT</code> en BASIC
+  </ul>
+  <li><b>Misterio en BASIC</b>:</li>
+  <ul>
+    <li>Pérdidas de memoria en nuestro juego. ¿A qué se deben? Dos semanas para encontrar la respuesta.</li>
+  </ul>
+  </li><li><b>Desarrollo</b>:</li>
+  <ul>
+    <li>Inicialización rápida y fácil de la pantalla, los colores y el módulo de texto sin tener que ajustarlo todo a mano.
+    </li><li>Llamadas a funciones del firmware con código ensamblador en línea: nota sobre potenciales problemas
+    </li><li>Creación y manejo de <code>structs</code> en C: ¿Qué son? ¿Cómo funcionan?
+    </li><li>Introducción de espacio para múltiples enemigos usando un array de structs en C
+    </li><li>Importancia de los comentarios en BASIC: usarlos como referencia de variables y estructuras de memoria
+    </li><li>Simulación de structs en BASIC usando arrays y prefijos de nombre
+    </li><li>Uso de una referencia variable a un elemento para generalizar el código previo directamente
+    </li><li>Diseño básico de un gestor de enemigos: creación y destrucción
+    </li><li>Visualización de múltiples enemigos e interacción: problemas asociados
+    </li><li>Gestión del array de enemigos al eliminar uno de ellos: posibles alternativas
+    </li><li>Añadiendo color a los enemigos como forma de distinguirlos
+  </ul>
+</ul>
+</details>
+
 
 ## EPISODIO 2 [#AGC02](https://twitter.com/hashtag/AGC02)
 
@@ -26,7 +66,7 @@ Seguidnos en Twitter: [@FranGallegoBR](https://twitter.com/FranGallegoBR), [@Hec
 [**>> Código fuente <<**](https://github.com/AmstradGameDevChallenge/BASICvsC-RPG/archive/agc02.zip)
 <br/><br/><br />
 
-<details><summary><strong>&gt;&gt;&gt; Detalles del episodio &lt;&lt;&lt;</strong></summary>
+<details><summary><strong>&gt;&gt;&gt; Contenidos detallados &lt;&lt;&lt;</strong></summary>
 <ul>
   <li>Noticias:</li>
   <ul>
@@ -67,7 +107,7 @@ Seguidnos en Twitter: [@FranGallegoBR](https://twitter.com/FranGallegoBR), [@Hec
 [**>> Código fuente <<**](https://github.com/AmstradGameDevChallenge/BASICvsC-RPG/archive/agc01.zip)
 <br/><br/><br />
 
-<details><summary><strong>&gt;&gt;&gt; Detalles del episodio &lt;&lt;&lt;</strong></summary>
+<details><summary><strong>&gt;&gt;&gt; Contenidos detallados &lt;&lt;&lt;</strong></summary>
 <ul>
 <li>Presentación de la serie
   </li><li>Herramientas a utilizar y organización
