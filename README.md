@@ -24,9 +24,9 @@ Seguidnos en Twitter: [@FranGallegoBR](https://twitter.com/FranGallegoBR), [@Hec
 [**>> Vídeo <<**](https://www.youtube.com/watch?v=5qsZ1lnEPCQ)
 
 [**>> Código fuente <<**](https://github.com/AmstradGameDevChallenge/BASICvsC-RPG/archive/agc02.zip)
-<br/><br/>
+<br/><br/><br />
 
-<details><summary><strong>Resumen</strong>:</summary>
+<details><summary><strong>&gt;&gt;&gt; Detalles del episodio &lt;&lt;&lt;</strong></summary>
 <ul>
   <li>Noticias:</li>
   <ul>
