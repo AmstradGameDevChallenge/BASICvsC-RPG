@@ -26,7 +26,7 @@ Seguidnos en Twitter: [@FranGallegoBR](https://twitter.com/FranGallegoBR), [@Hec
 [**>> Código fuente <<**](https://github.com/AmstradGameDevChallenge/BASICvsC-RPG/archive/agc02.zip)
 <br/><br/>
 
-__Resumen__:
+<details><summary><strong>Resumen</strong>:</summary>
 - Noticias: Anuncio oficial del [#CPCRetroDev 2019](http://cpcretrodev.byterealms.com/contest/cpc-retrodev-2019/)
 - Revisión de proyectos en desarrollo de los miembros del [#TeamC](https://twitter.com/hashtag/TeamC) y el [#TeamBASIC](https://twitter.com/hashtag/TeamBASIC)
 - Creación de un script bash para generar un DSK a partir del fichero .BAS
@@ -46,6 +46,7 @@ __Resumen__:
 - Definición de funciones matemáticas en BASIC
 - Cálculos enteros y reales y redondeos en BASIC y C
 - Uso de `RANDOMIZE` para controlar las secuencias pseudoaleatorias
+</details>
 
 ## EPISODIO 1 [#AGC01](https://twitter.com/hashtag/AGC01)
 
