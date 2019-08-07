@@ -27,25 +27,33 @@ Seguidnos en Twitter: [@FranGallegoBR](https://twitter.com/FranGallegoBR), [@Hec
 <br/><br/>
 
 <details><summary><strong>Resumen</strong>:</summary>
-- Noticias: Anuncio oficial del [#CPCRetroDev 2019](http://cpcretrodev.byterealms.com/contest/cpc-retrodev-2019/)
-- Revisión de proyectos en desarrollo de los miembros del [#TeamC](https://twitter.com/hashtag/TeamC) y el [#TeamBASIC](https://twitter.com/hashtag/TeamBASIC)
-- Creación de un script bash para generar un DSK a partir del fichero .BAS
-- Comentarios que no ocupan memoria en BASIC
-- Reemplazo y uso de variables con nombre corto en BASIC
-- Usando `LOCATE` desde C para dibujar personajes en una posición concreta
-- Uso de funciones y parámetros en C para reutilizar y simplificar el código
-- Diferencias entre las funciones `printf` y `puts` y uso del firmware
-- Análisis de estartegias más óptimas de programación en C usando el código ensamblador generado
-- Uso de las funciones `CHR$` y `STRING$` en BASIC para pintar caracteres y repetirlos
-- Movimiento de los personajes en una dimensión y ataque por movimiento
-- Uso de `GOSUB` y subrutinas en BASIC para modularizar el código
-- Dudas sobre paso de parámetros a funciones y subrutinas en BASIC y C
-- Detalle sobre las comparaciones y asignaciones en C
-- Introducción a los arrays en C y BASIC
-- Funciones aleatorias simples para ataques variables en juegos de ROL
-- Definición de funciones matemáticas en BASIC
-- Cálculos enteros y reales y redondeos en BASIC y C
-- Uso de `RANDOMIZE` para controlar las secuencias pseudoaleatorias
+<ul>
+  <li>Noticias:</li>
+  <ul>
+    <li>Anuncio oficial del <a href="http://cpcretrodev.byterealms.com/contest/cpc-retrodev-2019/" rel="nofollow">#CPCRetroDev 2019</a></li>
+  </ul>
+  <li>Revisión de proyectos en desarrollo de los miembros del <a href="https://twitter.com/hashtag/TeamC" rel="nofollow">#TeamC</a> y el <a href="https://twitter.com/hashtag/TeamBASIC" rel="nofollow">#TeamBASIC</a>
+  </li><li>Desarrollo:</li>
+  <ul>
+  <li>Creación de un script bash para generar un DSK a partir del fichero .BAS
+  </li><li>Comentarios que no ocupan memoria en BASIC
+  </li><li>Reemplazo y uso de variables con nombre corto en BASIC
+  </li><li>Usando <code>LOCATE</code> desde C para dibujar personajes en una posición concreta
+  </li><li>Uso de funciones y parámetros en C para reutilizar y simplificar el código
+  </li><li>Diferencias entre las funciones <code>printf</code> y <code>puts</code> y uso del firmware
+  </li><li>Análisis de estartegias más óptimas de programación en C usando el código ensamblador generado
+  </li><li>Uso de las funciones <code>CHR$</code> y <code>STRING$</code> en BASIC para pintar caracteres y repetirlos
+  </li><li>Movimiento de los personajes en una dimensión y ataque por movimiento
+  </li><li>Uso de <code>GOSUB</code> y subrutinas en BASIC para modularizar el código
+  </li><li>Dudas sobre paso de parámetros a funciones y subrutinas en BASIC y C
+  </li><li>Detalle sobre las comparaciones y asignaciones en C
+  </li><li>Introducción a los arrays en C y BASIC
+  </li><li>Funciones aleatorias simples para ataques variables en juegos de ROL
+  </li><li>Definición de funciones matemáticas en BASIC
+  </li><li>Cálculos enteros y reales y redondeos en BASIC y C
+  </li><li>Uso de <code>RANDOMIZE</code> para controlar las secuencias pseudoaleatorias
+  </ul>
+</ul>
 </details>
 
 ## EPISODIO 1 [#AGC01](https://twitter.com/hashtag/AGC01)
