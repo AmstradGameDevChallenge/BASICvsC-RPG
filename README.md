@@ -4,6 +4,17 @@ Desarrollo en directo de un juego de rol en BASIC y C para Amstrad CPC.
 
 Seguidnos en Twitter: [@FranGallegoBR](https://twitter.com/FranGallegoBR), [@Hec_Linares](https://twitter.com/Hec_Linares), [#TeamBASIC](https://twitter.com/hashtag/TeamBASIC), [#TeamC](https://twitter.com/hashtag/TeamC), [#AmstradGameDevChallenge](https://twitter.com/hashtag/AmstradGameDevChallenge)
 
+## EPISODIO 3 [#AGC03](https://twitter.com/hashtag/AGC03)
+
+<a href="https://www.youtube.com/watch?v=ezUGwy-jelE"><img align="left" src="https://github.com/AmstradGameDevChallenge/BASICvsC-RPG/blob/master/materials/scrshots/agc03_game_thumb.png" alt="Amstrad GameDev Challenge: BASIC vs C. Episodio 3. #AGC03"/></a>
+
+**Fecha**: Martes, 6 de agosto de 2019, 21:00h
+
+[**>> Vídeo <<**](https://www.youtube.com/watch?v=ezUGwy-jelE)
+
+[**>> Código fuente <<**](https://github.com/AmstradGameDevChallenge/BASICvsC-RPG/archive/agc03.zip)
+<br/><br/>
+
 ## EPISODIO 2 [#AGC02](https://twitter.com/hashtag/AGC02)
 
 <a href="https://www.youtube.com/watch?v=5qsZ1lnEPCQ"><img align="left" src="https://github.com/AmstradGameDevChallenge/BASICvsC-RPG/blob/master/materials/scrshots/agc02_game_thumb.png" alt="Amstrad GameDev Challenge: BASIC vs C. Episodio 2. #AGC02"/></a>
