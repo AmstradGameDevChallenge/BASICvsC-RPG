@@ -6,7 +6,7 @@ Seguidnos en Twitter: [@FranGallegoBR](https://twitter.com/FranGallegoBR), [@Hec
 
 ## AVANCE EPISODIO 4: Misterio Memory Leak en BASIC
 
-<a href="https://www.youtube.com/watch?v=dFCRWeQMxu4"><img align="left" src="https://github.com/AmstradGameDevChallenge/BASICvsC-RPG/blob/master/materials/scrshots/agc03_game_thumb.png" alt="Avance Amstrad GameDev Challenge: #TeamBASIC misterio memory leak"/></a>
+<a href="https://www.youtube.com/watch?v=dFCRWeQMxu4"><img align="left" src="https://github.com/AmstradGameDevChallenge/BASICvsC-RPG/blob/master/materials/scrshots/agc04_memoryleak_game_thumb.png" alt="Avance Amstrad GameDev Challenge: #TeamBASIC misterio memory leak"/></a>
 
 **Fecha**: Martes, 20 de agosto de 2019, 21:00h
 
