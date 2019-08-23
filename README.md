@@ -12,7 +12,7 @@ Seguidnos en Twitter: [@FranGallegoBR](https://twitter.com/FranGallegoBR), [@Hec
 
 [**>> Vídeo <<**](https://www.youtube.com/watch?v=dFCRWeQMxu4)
 
-[**>> Código fuente <<**](https://github.com/AmstradGameDevChallenge/BASICvsC-RPG/archive/agc03.zip)
+[**>> Código fuente <<**](https://github.com/AmstradGameDevChallenge/BASICvsC-RPG/archive/%23AGC04-adv01.zip)
 <br/><br/><br/>
 
 <details><summary><strong>&gt;&gt;&gt; Contenidos detallados &lt;&lt;&lt;</strong></summary>
