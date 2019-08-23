@@ -10,6 +10,8 @@
 1 ' 0xBBFF: SCR INITIALIZE
 1 ' 0xBB4E: TXT INITIALIZE
 1 '=============================================
+1 '--Index temporary variables:
+1 ' i, j, k
 1 '--Player Attributes:
 1 ' e: energy, a: attack, d: defense
 1 ' x: x-coord
@@ -31,7 +33,7 @@
 1 '=============================================
 1 '
 100 CALL &BBFF:CALL &BB4E:DEFINT a-z
-110 e=100:a=30:d=15:x=5:f=0
+110 e=100:a=30:d=15:x=5:f=0:i=f:j=f:k=f
 120 eem=3:DIM ee(eem),ea(eem),ed(eem),ex(eem),en(eem),ep(eem)
 130 eet=0:een=0:a$=""
 140 DIM m(3):m(0)=-1:m(1)=1:m(2)=1:m(3)=-1
@@ -42,6 +44,12 @@
 1 ' PRESENTATION
 200 PRINT"RPG GAME"
 210 GOSUB 10000:RANDOMIZE TIME
+
+1 ' ========================================================
+1 ' ========================================================
+1 ' === MAIN GAME LOOP 
+1 ' ========================================================
+1 ' ========================================================
 
 1 ' PRINT GAME STATUS
 300 WHILE 1:CLS
@@ -68,7 +76,13 @@
 510 GOSUB 3300
 520 NEXT
 
-900 GOSUB 10000:WEND
+900 GOSUB 10000
+910 i=UNT(fre(""))
+920 WEND
+
+1 ' ========================================================
+1 ' ========================================================
+
 
 1 ' MOVE PLAYER LEFT
 1000 x=x-1:IF x=0THEN x=1
