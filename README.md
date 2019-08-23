@@ -4,6 +4,56 @@ Desarrollo en directo de un juego de rol en BASIC y C para Amstrad CPC.
 
 Seguidnos en Twitter: [@FranGallegoBR](https://twitter.com/FranGallegoBR), [@Hec_Linares](https://twitter.com/Hec_Linares), [#TeamBASIC](https://twitter.com/hashtag/TeamBASIC), [#TeamC](https://twitter.com/hashtag/TeamC), [#AmstradGameDevChallenge](https://twitter.com/hashtag/AmstradGameDevChallenge)
 
+## AVANCE EPISODIO 4: Misterio Memory Leak en BASIC
+
+<a href="https://www.youtube.com/watch?v=dFCRWeQMxu4"><img align="left" src="https://github.com/AmstradGameDevChallenge/BASICvsC-RPG/blob/master/materials/scrshots/agc03_game_thumb.png" alt="Avance Amstrad GameDev Challenge: #TeamBASIC misterio memory leak"/></a>
+
+**Fecha**: Martes, 20 de agosto de 2019, 21:00h
+
+[**>> Vídeo <<**](https://www.youtube.com/watch?v=dFCRWeQMxu4)
+
+[**>> Código fuente <<**](https://github.com/AmstradGameDevChallenge/BASICvsC-RPG/archive/agc03.zip)
+<br/><br/><br/>
+
+<details><summary><strong>&gt;&gt;&gt; Contenidos detallados &lt;&lt;&lt;</strong></summary>
+<ul>
+  <li><b>Noticias</b>:</li>
+  <ul>
+    <li>Actualización de #CPCtelera: añadido modificador -w para activar el modo Warp al inicio en RVM
+  </ul>
+  <li><b>Misterio en BASIC</b>:</li>
+  <ul>
+    <li>Recordatorio: al realizar varios ciclos de ejecución de nuestro juego, durante la ejecución, se pierden bytes de memoria
+    </li><li>Comentarios de usuarios que han investigado y se han planteado dudas
+    </li><li>Si la memoria se va perdiendo, ¿Se quedará nuestro programa al final sin memoria?
+    </li><li>Usuario comenta que parece pederse la memoria en los INPUTs, que parece un fallo del firmware del #Amstrad
+    </li><li>Revisión de la dirección de memoria &B08D que contiene datos del firmware: 'Final del espacio libre: byte antes de la zona de strings = HIMEM'
+    </li><li>Detalle importante: hay 2 firmwares de Amstrad CPC, el 1.0 y el 1.1. Las variables del firmware están en direcciones distintas según la versión del firmware
+    </li><li>Mapa básico de memoria del Amstrad CPC y definición de qué es HIMEM
+    </li><li>Funcionamiento de los bancos de memoria y las ROMs del CPC a nivel básico
+    </li><li>HIMEM: dirección más alta de espacio para el programa en BASIC (código y variables)
+    </li><li>La zona de memoria de BASIC está protegida por el intérprete: no nos permite escribir en ella desde fuera.
+    </li><li>La orden MEMORY sirve para cambiar HIMEM de posición: utilidades
+    </li><li>Vemos el valor de HIMEM desde BASIC, usamos HEX$ para convertirlo y vamos a esa zona de memoria a ver qué hay
+    </li><li>Cómo configurar el visor de memoria de RVM para mostrar contenido de RAM y ROM
+    </li><li>Ponemos a prueba la zona de strings de BASIC (en HIMEM) asignando valores a a$ y vemos cómo reacciona la memoria
+    </li><li>La zona de strings de BASIC almacena strings nuevos sin borrar antiguos: funciona como un Stack Allocator (un gestor de memoria tipo pila)
+    </li><li>Esto explica el misterio: en cada ciclo del programa metemos valores nuevos en los strings con nuestros INPUT.
+    </li><li>No es realmente un memory leak, sino una consecuencia del Stack Allocator, que funciona similar a lenguajes de script modernos.
+    </li><li>Es una estrategia óptima para la gestión dinámica de la memoria de strings.
+    </li><li>¿Hace este comportamiento que se nos pueda acabar la memoria? Creamos un programa para ponerlo a prueba
+    </li><li>Cuando no queda memoria, BASIC libera la memoria de strings que ya no son usados, compactando los usados. Básicamente, recolecta la basura.
+    </li><li>Potenciales ventajas e inconvenientes del funcionamiento de la memoria de strings
+    </li><li>Controlar y liberar la memoria (recoger la basura) cuando nosotros queramos usando FRE("")
+    </li><li>Usando UNT para evitar tener que hacer PRINT de FRE("") y no causar Overflows
+    </li><li>añadiendo la recolección de basura a nuestro programa y poniéndolo a prueba
+    </li><li>Observando el comportamiento de la memoria cuando forzamos la liberación de strings
+    </li><li>Truquito en asignación de variables: uso de otras variables en lugar de valores inmediatos
+    </li><li>Resolución de dudas planteadas en el chat
+  </ul>
+</ul>
+</details>
+
 ## EPISODIO 3 [#AGC03](https://twitter.com/hashtag/AGC03)
 
 <a href="https://www.youtube.com/watch?v=ezUGwy-jelE"><img align="left" src="https://github.com/AmstradGameDevChallenge/BASICvsC-RPG/blob/master/materials/scrshots/agc03_game_thumb.png" alt="Amstrad GameDev Challenge: BASIC vs C. Episodio 3. #AGC03"/></a>
