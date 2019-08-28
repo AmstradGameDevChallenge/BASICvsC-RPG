@@ -1,7 +1,7 @@
 #!/bin/bash
 IDSK=$CPCT_PATH/tools/iDSK-0.13/bin/iDSK
 SOURCE=rpg.bas
-TARGET=agc03rpg
+TARGET=agc04rpg
 
 # Create DSK
 $IDSK ${TARGET}.dsk -n
