@@ -12,8 +12,8 @@ Seguidnos en Twitter: [@FranGallegoBR](https://twitter.com/FranGallegoBR), [@Hec
 [**>> Vídeo <<**](https://www.youtube.com/watch?v=Ru-5L9sABVU)
 
 [**>> Código fuente <<**](https://github.com/AmstradGameDevChallenge/BASICvsC-RPG/archive/agc04.zip)
-[**>> UDG Designer <<**](https://github.com/AmstradGameDevChallenge/BASICvsC-RPG/blob/master/materials/tools/UDGs/UDGs_designer.ods?raw=true)
-<br/>
+|| [**>> UDG Designer <<**](https://github.com/AmstradGameDevChallenge/BASICvsC-RPG/blob/master/materials/tools/UDGs/UDGs_designer.ods?raw=true)
+<br/><br/><br/>
 
 <details><summary><strong>&gt;&gt;&gt; Contenidos detallados &lt;&lt;&lt;</strong></summary>
 <ul>
