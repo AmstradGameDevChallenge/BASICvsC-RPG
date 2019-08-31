@@ -53,7 +53,6 @@ Seguidnos en Twitter: [@FranGallegoBR](https://twitter.com/FranGallegoBR), [@Hec
       </li>
     </ul>
     <li>C:</li>
-  </ul>
   <ul>
     <li>Problemas de SYMBOL AFTER en C:</li>
     <ul> 
