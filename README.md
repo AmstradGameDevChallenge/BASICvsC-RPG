@@ -28,7 +28,7 @@ Seguidnos en Twitter: [@FranGallegoBR](https://twitter.com/FranGallegoBR), [@Hec
         </li><li>cpct_bin2sna permite crear snapshots de múltiples ficheros binarios.
         </li>
       </ul>
-    <li>Nueva versión del emulador CPCEC de CNGSoft. Funciona en Windows y en Linux/Mac (con wine).
+    <li>Nueva versión del emulador <a href="http://cngsoft.no-ip.org/cpcec-20190817.zip">CPCEC de CNGSoft</a>. Funciona en Windows y en Linux/Mac (con wine).
     </li>
   </ul>
   </li><li><b>Desarrollo</b>:</li>
