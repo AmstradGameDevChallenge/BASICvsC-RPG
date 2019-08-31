@@ -7,13 +7,13 @@ Seguidnos en Twitter: [@FranGallegoBR](https://twitter.com/FranGallegoBR), [@Hec
 ## EPISODIO 4: Especial Gráficos UDG [#AGC04](https://twitter.com/hashtag/AGC04)
 
 <a href="https://www.youtube.com/watch?v=Ru-5L9sABVU"><img align="left" src="https://github.com/AmstradGameDevChallenge/BASICvsC-RPG/blob/master/materials/scrshots/agc04_gamesprites_thumb.png" alt="Amstrad GameDev Challenge: BASIC vs C. Episodio 4. Especial Gráficos UDG. #AGC04"/></a>
-
 **Fecha**: Martes, 27 de agosto de 2019, 21:00h
 
 [**>> Vídeo <<**](https://www.youtube.com/watch?v=Ru-5L9sABVU)
 
 [**>> Código fuente <<**](https://github.com/AmstradGameDevChallenge/BASICvsC-RPG/archive/agc04.zip)
-<br/><br/><br/>
+[**>> UDG Designer <<**](https://github.com/AmstradGameDevChallenge/BASICvsC-RPG/blob/master/materials/tools/UDGs/UDGs_designer.ods?raw=true)
+<br/>
 
 <details><summary><strong>&gt;&gt;&gt; Contenidos detallados &lt;&lt;&lt;</strong></summary>
 <ul>
