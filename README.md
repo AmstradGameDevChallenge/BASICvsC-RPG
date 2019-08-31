@@ -254,6 +254,7 @@ Seguidnos en Twitter: [@FranGallegoBR](https://twitter.com/FranGallegoBR), [@Hec
 
 # Materiales
 
+- [Hoja de cálculo para diseño de UDGs](https://github.com/AmstradGameDevChallenge/BASICvsC-RPG/blob/master/materials/tools/UDGs/UDGs_designer.ods?raw=true)
 - [Solicitud de inscripción a la organización de Github](http://bit.ly/AGC01)
 - [CPCtelera](http://lronaldo.github.io/cpctelera/)
 - [CPCtelera 1.5 WIP](https://github.com/lronaldo/cpctelera/tree/development)
