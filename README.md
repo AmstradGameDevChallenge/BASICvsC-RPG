@@ -4,6 +4,90 @@ Desarrollo en directo de un juego de rol en BASIC y C para Amstrad CPC.
 
 Seguidnos en Twitter: [@FranGallegoBR](https://twitter.com/FranGallegoBR), [@Hec_Linares](https://twitter.com/Hec_Linares), [#TeamBASIC](https://twitter.com/hashtag/TeamBASIC), [#TeamC](https://twitter.com/hashtag/TeamC), [#AmstradGameDevChallenge](https://twitter.com/hashtag/AmstradGameDevChallenge)
 
+## EPISODIO 4: Especial Gráficos UDG [#AGC04](https://twitter.com/hashtag/AGC04)
+
+<a href="https://www.youtube.com/watch?v=Ru-5L9sABVU"><img align="left" src="https://github.com/AmstradGameDevChallenge/BASICvsC-RPG/blob/master/materials/scrshots/agc04_gamesprites_thumb.png" alt="Amstrad GameDev Challenge: BASIC vs C. Episodio 4. Especial Gráficos UDG. #AGC04"/></a>
+
+**Fecha**: Martes, 27 de agosto de 2019, 21:00h
+
+[**>> Vídeo <<**](https://www.youtube.com/watch?v=Ru-5L9sABVU)
+
+[**>> Código fuente <<**](https://github.com/AmstradGameDevChallenge/BASICvsC-RPG/archive/agc04.zip)
+<br/><br/><br/>
+
+<details><summary><strong>&gt;&gt;&gt; Contenidos detallados &lt;&lt;&lt;</strong></summary>
+<ul>
+  <li><b>Noticias</b>:</li>
+  <ul>
+    <li><a href="http://bit.ly/premiosMadrid2019">4ª edición de los premios de animación de la comunidad de Madrid</a>, con premios de 2000€ y 1000€ a los mejores videojuegos culturales.
+    </li><li>Actualizaciones de CPCtelera</li>
+      <ul>
+        <li>cpct_rvm ahora soporta uso de nombres largos y modo warp en arranque.
+        </li><li>cpc2cdt permite importar ficheros ASCII en CDTs.
+        </li><li>cpct_pack permite la generación de ficheros binarios comprimidos.
+        </li><li>cpct_bin2sna permite crear snapshots de múltiples ficheros binarios.
+        </li>
+      </ul>
+    <li>Nueva versión del emulador CPCEC de CNGSoft. Funciona en Windows y en Linux/Mac (con wine).
+    </li>
+  </ul>
+  </li><li><b>Desarrollo</b>:</li>
+  <ul>
+    <li>BASIC:</li>
+    <ul>
+      <li>Repaso del código BASIC: uso de fre("") y UNT()
+      </li><li>Reestructuración del código de gestión de enemigos y personaje principal
+      </li><li>Descarga directa y uso en línea de comando de la última versión del emulador de CNGSoft CPCEC (wget http://cngsoft.no-ip.org/cpcec-20190817.zip)
+      </li><li>Sustitución de mensajes por gráficos: usando subrutinas de dibujado para personaje y enemigos
+      </li><li>Uso de variables temporales para acortar el código y mejorar su legibilidad
+      </li><li>Introducción a los gráficos UDG: ¿Qué son? ¿Cómo se crean? Definición y uso de distinas bases numéricas. 
+      </li><li>Uso de SYMBOL y SYMBOL AFTER.
+      </li><li>¿Por qué es necesario SYMBOL AFTER? Uso de memoria de los UDGs. Modificación a mano de la memoria que define los UDGs.
+      </li><li>Presentación de <a href="https://github.com/AmstradGameDevChallenge/BASICvsC-RPG/blob/master/materials/tools/UDGs/UDGs_designer.ods?raw=true">hoja de cálculo para dibujado de UDGs</a>.
+      </li><li>Soporte para que los enemigos puedan tener sus propios UDGs
+      </li><li><a href="http://bit.ly/fremosUDG">Más información sobre gráficos UDG en el blog de Fremos</a>.
+      </li><li>Dibujado de sprites formados por múltiples caracteres y con varios colores: uso del modo transparente.
+      </li><li>Dibujando sprites multicolor y multicarácter usando cadenas y códigos de control: String Sprites
+      </li><li>Definición de String Sprites constantes en un array, accesibles por su índice: evitando copiar cadenas en tiempo de ejecución.
+      </li><li>Activación/Desactivación de modo transaparente usando cadenas y el código de control 22
+      </li>
+    </ul>
+    <li>C:</li>
+  </ul>
+  <ul>
+    <li>Problemas de SYMBOL AFTER en C:</li>
+    <ul> 
+      <li>No hay SYMBOL AFTER en C ni en el firmware de Amstrad.
+      </li><li>En C se generan binarios, y al cargar un binario Amstrad desactiva los UDGs.
+      </li>
+    </ul>
+    <li>El firmware almacena 3 variables en memoria para gestionar los UDG: Valor ASCII del primer UDG definible, Puntero a la matriz de UDGs y flag de activación.
+    </li><li> Las variables están en ubicaciones distintas en los firmwares 1.0 y 1.1.
+    </li><li> Implementación de SYMBOL AFTER en C.
+    </li><li> Detalle sobre el casting de direcciones de memoria absolutas a punteros.
+    </li><li> Implementación de SYMBOL en C usando el código de control 25.
+    </li><li> Entendiendo HIMEM, el firmware y la ROM, para saber dónde ubicar la tabla de definiciones de UDG para C.
+    </li><li> Problema: realizar un SYMBOL AFTER antes de la inicialización de texto y gráficos con los CALL 0xBBFF y call 0xBB4E (initMode()). Estas inicializaciones deshacen el SYMBOL AFTER.  
+    </li><li> Detección de la versión del firmware actualmente en ejecución: Usando el final de la tabla de saltos (High jump-block) que es distinto en las 2 versiones.
+    </li><li> Problema en SDCC con múltiples comparaciones en una misma línea.
+    </li><li> Definición de múltiples caracteres en C sin usar SYMBOL: haciendo que el puntero de SYMBOL AFTER apunte a un array con los datos.       
+    </li><li> Imprimiendo sprites de enemigos formados de varios carácteres.
+    </li><li> Creación manual de string sprites en arrays para dibujar enemigos multicaracter y multicolor.
+    </li><li> Dibujando enemigos con 2 caracteres de altura, 3 colores y 9 UDGs en total.
+    </li><li> Uso del modo transparencia con una función de activación/desactivación.
+    </li>
+  </ul>
+  </li><li><b>Nuevos misterios y trabajo para casa</b>:</li>
+  <ul>
+    <li>Nuevo problema de memory leak en BASIC: en cada nueva ejecución del juego desaparecen 48 bytes. ¿Por qué?
+    </li><li>Los UDG en BASIC nos ocupan doble: el código que genera los datos de los UDG, más los propios datos de los UDG.
+    </li><li>¿Es posible tener en BASIC en memoria sólo los datos de los UDG, sin el código que los genera, como en C?
+    </li>
+  </ul>
+</ul>
+</details>
+
+
 ## AVANCE EPISODIO 4: Misterio Memory Leak en BASIC
 
 <a href="https://www.youtube.com/watch?v=dFCRWeQMxu4"><img align="left" src="https://github.com/AmstradGameDevChallenge/BASICvsC-RPG/blob/master/materials/scrshots/agc04_memoryleak_game_thumb.png" alt="Avance Amstrad GameDev Challenge: #TeamBASIC misterio memory leak"/></a>
