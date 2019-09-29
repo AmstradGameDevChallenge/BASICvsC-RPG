@@ -1,81 +1,74 @@
-1 '==========================================
-1 '==========================================
-1 '== INITIALIZER ROUTINES
-1 '==========================================
-1 '==========================================
-
-1 '=============================================
-1 ' INITIALIZE
-1 '=============================================
-1 ' 0xBBFF: SCR INITIALIZE
-1 ' 0xBB4E: TXT INITIALIZE
-60000 SYMBOL AFTER 256:CALL &BBFF:CALL &BB4E
-60010 SYMBOL AFTER 250:DEFINT a-z
-60020 e=100:a=30:c=250:d=15:x=5:v=0
-1 ' Temporary variables
-60030 f=0:i=f:j=f:k=f:a$=""
-1 ' Enemy structure definition
-60040 eem=3:eet=0:een=0
-60050 i=eem
-60060 DIM ea(i),ed(i),ee(i),ev(i)
-60070 DIM en(i),ep(i),es(i),ex(i)
-60080 DIM m(3):m(0)=-1:m(1)=1:m(2)=1:m(3)=-1
-
-1 ' USER DEFINED GRAPHICS
-1 ' 60100 SYMBOL AFTER 250
-1 ' 60110 SYMBOL 250,&3C,&42,&EA,&FE,&DF,&46,&3C,&66
-1 ' 60120 SYMBOL 251,&9C,&48,&34,&FE,&FE,&3C,&54,&94
-1 ' 60130 SYMBOL 252,&24,&99,&DB,&E7,&3C,&3C,&24,&66
-1 ' 60140 SYMBOL 253,&3E,&22,&E2,&7E,&2A,&FF,&81,&FF
-1 ' 60200 RETURN
-
-60110 SYMBOL 255,&3C,&24,&38,&24,&18,&18,&26,&1C
-60120 SYMBOL 254,&18,&18,&18,&3C,&3C,&66,&00,&00
-60130 SYMBOL 253,&00,&00,&04,&00,&00,&80,&80,&C0
-60140 SYMBOL 252,&82,&00,&00,&00,&00,&00,&66,&E7
-60150 SYMBOL 251,&00,&18,&00,&18,&04,&00,&40,&22
-60160 SYMBOL 250,&3C,&42,&EA,&FE,&DF,&46,&3C,&66
-1 ' DEFINE STRING SPRITES
-60170 s$(0)=chr$(15)+chr$(1)+chr$(255)+chr$(8)+chr$(15)+chr$(2)+chr$(253)+chr$(8)+chr$(15)+chr$(3)+chr$(251)+chr$(8)+chr$(10)+chr$(15)+chr$(1)+chr$(254)+chr$(8)+chr$(15)+chr$(2)+chr$(252)+chr$(11)
-60180 s$(1)=chr$(15)+chr$(1)+chr$(255)+chr$(8)+chr$(15)+chr$(2)+chr$(253)+chr$(8)+chr$(15)+chr$(3)+chr$(251)+chr$(8)+chr$(10)+chr$(15)+chr$(1)+chr$(254)+chr$(8)+chr$(15)+chr$(2)+chr$(252)+chr$(11)
-60190 s$(2)=chr$(15)+chr$(1)+chr$(255)+chr$(8)+chr$(15)+chr$(2)+chr$(253)+chr$(8)+chr$(15)+chr$(3)+chr$(251)+chr$(8)+chr$(10)+chr$(15)+chr$(1)+chr$(254)+chr$(8)+chr$(15)+chr$(2)+chr$(252)+chr$(11)
-60200 ton$=chr$(22)+chr$(1)
-60210 tof$=chr$(22)+chr$(0)
-60220 PRINT "LOADING GAME. PLEASE WAIT..."
-60230 CHAIN MERGE"!GAME.BAS",100,DELETE
-
-1 '=============================================
-1 '--Index temporary variables:
-1 ' i, j, k
-1 '--Player Attributes:
-1 ' a: attack
-1 ' c: player character number
-1 ' d: defense
-1 ' e: energy
-1 ' x: x-coord
-1 ' v: velocity in x-axis
-1 '--Enemy Attributes (e prefix):
-1 ' ea(): enemy attack
-1 ' ed(): enemy defense
-1 ' ee(): enemy energy
-1 ' en(): enemy move status
-1 ' ep(): enemy pen
-1 ' es(): enemy sprite number
-1 ' ex(): enemy x-coord
-1 ' ev(): enemy velocity in x-axis
-1 '--Enemy General Control(ee prefix):
-1 ' eem: Enemy Max Number
-1 ' eet: Enemy turn
-1 ' een: Enemy number
-1 '--Movements (m enemy movement)
-1 ' m: enemy movement
-1 '--General Variables:
-1 ' f: Temporary force calculation
-1 ' a$: Temporary user INPUT
-1 ' s$(): Array of global sprite strings
-1 ' ton$: Activate (ON) transparences string
-1 ' tof$: Deactivate (OFF) transparences string
-1 '--Functions:
-1 ' FNr(m): Random between [m-3, m+3]
-1 '=============================================
+1 '=============================================== 
+1 '== BASIC SCREEN LOADER
+1 '== Loads 4 screens that tell the story of the
+1 '== game and then loads the game itself
+1 '=============================================== 
 1 '
+1 ' BASIC Video Setup
+10 CALL &BB4E:CALL &BBFF:SYMBOL AFTER 256
+20 MODE 0:BORDER 0:INK 0,0:i=0:m=0:j=0:v=0
+1 ' Load Screen 1 into video memory (now &C000)
+30 LOAD"!SCREEN01.BIN",&C000
+1 ' Save HIMEM and enable use of memory 
+1 ' from &4000 onwards by LOAD commands
+1 ' Warning: At least one LOAD command must be done before this, 
+1 ' because LOAD allocates a 4K buffer at HIMEM that can 
+1 ' only be removed with CLEAR and prevents new MEMORY 
+1 ' commands with greater addresses from working
+40 m=HIMEM:MEMORY &3FFF
+1 ' Load Screen 2 into backbuffer (now &4000)
+50 LOAD"!SCREEN02.BIN",&4000
+1 ' Horizontal effect + change video memory to &4000 (Bank 1)
+60 v=&10:GOSUB 300
+1 ' Load Screen 3 into new backbuffer (&C000, now not visible)
+70 LOAD"!SCREEN03.BIN",&C000
+1 ' Vertical effect + change video memory to &4000 (Bank 3)
+90 v=&30:GOSUB 400
+1 ' Load Screen 4 into new backbuffer (&4000, now not visible)
+100 LOAD"!SCREEN04.BIN",&4000
+1 ' Horizontal effect + change video memory to &4000 (Bank 1)
+110 v=&10:GOSUB 300
+1 ' Restore BASIC's HIMEM to its original value
+1 ' CLEAR frees the 4K buffer previously reserved by LOAD
+1 ' And also frees all BASIC's reserved space (including variables)
+120 MEMORY m:CLEAR
+1 ' And now LOAD and RUN Game Loader to start the game
+130 RUN"!GL.BAS"
+140 END
+
+1 ' ACTIVE WAITING LOOP
+1 ' Simple Active Waiting Loop 
+1 ' to make effects run slower
+1 '
+200 FOR j=1TO 40:NEXT
+210 RETURN
+
+1 ' HORIZONTAL EFFECT + VIDEO MEMORY CHANGE
+1 ' Preform a disappearing and reappearing effect
+1 ' by horizontally contracting video memory and then
+1 ' expanding it again after changing video memory location
+1 ' Changes Video memory to 'v' Bank 
+1 '
+300 FOR i=40TO 0 STEP -1:OUT &BC00,1:OUT &BD00,i:GOSUB 200:NEXT
+310 GOSUB 500
+320 FOR i=0TO 40:OUT &BC00,1:OUT &BD00,i:GOSUB 200:NEXT
+330 RETURN
+
+
+1 ' VERTICAL EFFECT + VIDEO MEMORY CHANGE
+1 ' Preform a disappearing and reappearing effect
+1 ' by vertically contracting video memory and then
+1 ' expanding it again after changing video memory location
+1 ' Changes Video memory to 'v' Bank 
+1 '
+400 FOR i=25TO 0 STEP -1:OUT &BC00,6:OUT &BD00,i:GOSUB 200:NEXT
+410 GOSUB 500 
+420 FOR i=0TO 25:OUT &BC00,6:OUT &BD00,i:GOSUB 200:NEXT
+430 RETURN
+
+1 ' SET VIDEO MEMORY BANK TO 'v'
+1 ' Sets New video memory location to bank indicated
+1 ' by variable 'v'. Possible banks are &00,&10,&20,&30
+1 '
+500 OUT &BC00,12:OUT &BD00,v
+510 RETURN
