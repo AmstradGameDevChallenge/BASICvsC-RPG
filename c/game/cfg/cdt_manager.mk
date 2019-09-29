@@ -24,7 +24,7 @@
 ############################################################################
 
 ## Set the name of your main game file in the CDT here
-$(eval $(call CDTMAN, SET_FILENAME, Game))
+$(eval $(call CDTMAN, SET_FILENAME, Dungeon Castle))
 
 ###############################################################################
 ##                    CASSETE FILE MANAGER HELP INDEX                        ##
