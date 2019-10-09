@@ -6,41 +6,14 @@
 
 #include <cpctelera.h>
 #include <stdio.h>
+#include "entities/enemy.h"
+#include "dungeon_entrance8bit.h"
 
 char const sprites[] = {
    240, 0, 
    15, 1, 244, 15, 2, 8, 246, 15, 3, 8, 248, 
    15, 1, 8, 10, 245, 15, 2, 8, 247, 15, 3, 8, 249, 11, 0
 };
-
-struct TEnemy {
-  u8 energy;
-  u8 attack;
-  u8 deffense;
-  u8 x;
-  u8 force;
-  u8 ei;
-  u8 color;
-  u8 sprite;
-};
-
-struct TEnemy enemy[3];
-u8 enemies;
-u8 x;
-u8 e, a, d;
-i8 const em[4] = {-1, 1, 1, -1};
-
-void initEnemy(u8 e, u8 a, u8 d) {
-   if (enemies < 3) {
-      enemy[enemies].energy   = e;
-      enemy[enemies].attack   = a;
-      enemy[enemies].deffense = d;
-      enemy[enemies].color = enemies + 1;
-      enemy[enemies].x = 7 + (enemies * 2);
-      enemy[enemies].sprite = 2;
-      enemies++;
-   }
-}
 
 u8 isFirmware11() {
    u8* p = (u8*)0xBAE4;
@@ -171,6 +144,8 @@ void main(void) {
    }
    // symbol(250, UDG);
    
+   cpct_memcpy((u8*)0xC000, (u8*)g_tile_tileset, 3456);
+   
    // Let's start!
    puts("RPG GAME\r\n\r\nPRESS ENTER TO START");
    
@@ -218,7 +193,7 @@ void main(void) {
             // PLAYER ATTACKS!!
             if(x == enemy[0].x) {
                x--;
-               locate(1,10);
+               
                f = FNr(a);
                if (enemy[0].energy > f) {
                   enemy[0].energy -= f;
@@ -228,6 +203,8 @@ void main(void) {
                   cpct_memcpy(&enemy[0], &enemy[enemies-1], sizeof(struct TEnemy));
                   enemies--;
                }
+               
+               locate(1,10);
                printf("PLAYER ATTACKS WITH FORCE: %d", f);
             }
          } else {
