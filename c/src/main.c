@@ -7,7 +7,6 @@
 #include <cpctelera.h>
 #include <stdio.h>
 #include "entities/enemy.h"
-#include "dungeon_entrance8bit.h"
 
 char const sprites[] = {
    240, 0, 
@@ -143,8 +142,6 @@ void main(void) {
       symbolAfter10(240, (u16)UDG);
    }
    // symbol(250, UDG);
-   
-   cpct_memcpy((u8*)0xC000, (u8*)g_tile_tileset, 3456);
    
    // Let's start!
    puts("RPG GAME\r\n\r\nPRESS ENTER TO START");
