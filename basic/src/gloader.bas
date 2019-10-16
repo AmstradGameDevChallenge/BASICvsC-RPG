@@ -42,7 +42,7 @@
 60200 ton$=chr$(22)+chr$(1)
 60210 tof$=chr$(22)+chr$(0)
 60220 PRINT "LOADING GAME. PLEASE WAIT..."
-60230 CHAIN MERGE"!GAME.BAS",100,DELETE
+60230 CHAIN MERGE"!GAME.BAS",10,DELETE
 
 1 '=============================================
 1 '--Index temporary variables:
