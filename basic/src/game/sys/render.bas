@@ -13,6 +13,9 @@
 
 1 ' -------------------------------
 1 ' UPDATE
-20100 LOCATE 1,1
-20110 PRINT "x"
-20120 RETURN
+20100 CLS
+20110 FOR i=1TO een-1
+20120 LOCATE ex(i),ey(i)
+20130 PRINT s$(es(i))
+20140 NEXT
+20150 RETURN
