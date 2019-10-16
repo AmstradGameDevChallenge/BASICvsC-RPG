@@ -130,8 +130,8 @@ function createCDT() {
    add2CDT cpc    "SCREEN02.BIN"    ${BIN}/screen02.bin
    add2CDT cpc    "SCREEN03.BIN"    ${BIN}/screen03.bin
    add2CDT cpc    "SCREEN04.BIN"    ${BIN}/screen04.bin
-   add2CDT cpctxt "GLOADER.BAS"     ${OBJ}/game/gloader.bas
-   add2CDT cpctxt "GAME.BAS"        ${OBJ}/game/game.bas
+   add2CDT cpctxt "GLOADER.BAS"     ${OBJ}/gloader.bas
+   add2CDT cpctxt "GAME.BAS"        ${OBJ}/game.bas
 }
 
 #--------------------------------------------------------------------------
