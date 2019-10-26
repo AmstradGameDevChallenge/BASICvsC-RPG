@@ -4,6 +4,100 @@ Desarrollo en directo de un juego de rol en BASIC y C para Amstrad CPC.
 
 Seguidnos en Twitter: [@FranGallegoBR](https://twitter.com/FranGallegoBR), [@Hec_Linares](https://twitter.com/Hec_Linares), [#TeamBASIC](https://twitter.com/hashtag/TeamBASIC), [#TeamC](https://twitter.com/hashtag/TeamC), [#AmstradGameDevChallenge](https://twitter.com/hashtag/AmstradGameDevChallenge)
 
+## EPISODIO 5: Game Design, modelo ECS y más [#AGC05](https://twitter.com/hashtag/AGC05)
+
+<a href="https://www.youtube.com/watch?v=YQ6obw_M9B4"><img align="left" src="https://github.com/AmstradGameDevChallenge/BASICvsC-RPG/blob/master/materials/scrshots/agc05_design_thumb.png" alt="Amstrad GameDev Challenge: BASIC vs C. Episodio 5. Game Design, modelo ECS y más. #AGC05"/></a>
+**Fecha**: Martes, 11 de septiembre de 2019, 21:00h
+
+[**>> Vídeo <<**](https://www.youtube.com/watch?v=YQ6obw_M9B4)
+
+[**>> Código fuente <<**](https://github.com/AmstradGameDevChallenge/BASICvsC-RPG/archive/agc05.zip)
+<br/><br/><br/>
+
+<details><summary><strong>&gt;&gt;&gt; Contenidos detallados &lt;&lt;&lt;</strong></summary>
+<ul>
+  <li><b>Noticias</b>:</li>
+  <ul>
+    <li>Taller de #AmstradGameDevChallenge en RetroZaragoza 2019 (28/09/2019 16:00h). Inscipciones abiertas. Se intentará emitir en directo.
+    </li><li>Novedad en #AGC05: Cronómetro para las intervenciones del #TeamC y el #TeamBASIC. 15 minutos + 5 extra por intervención.
+    </li><li>Acalaración respecto a #AGC y el #CPCRetroDev 
+  </ul>
+  </li><li><b>Desarrollo</b>:</li>
+  <ul>
+    <li>BASIC:</li>
+    <ul>
+      <li>Revisión de nuevo tipo de Memory Leak en BASIC:
+      </li><li>Hay un problema al realizar SYMBOL AFTER. Se reserva nueva memoria para los UDGs donde esté en ese momento HIMEM. 
+      </li><li>Es importante realizar un SYMBOL AFTER 256 al inicio del programa para liberar la memoria reservada para UDGs antes de reservar nueva.
+      </li><li>Observamos problemas que pueden ocurrir con el uso de SYMBOL AFTER y otros comandos que manejen HIMEM, como por ejemplo los CALL de inicialización (&BBFF y &BB4E)
+      </li><li>Analizamos un problema importante de consumo de memoria en BASIC: el código que usamos para definir los UDG ocupa mucho espacio
+      </li><li>Vemos como utilizar la orden CHAIN MERGE para tener 2 programas separados que se encadenan: uno inicializa todo (variables, UDGs, etc) y otro sólo ejecuta, pero solo tiene los datos, y no el código de inicialización, ahorrando memoria.
+      </li><li>Solucionamos un problema de inicialización con DEFINT, que elimina todas las variables previamente definidas.
+      </li><li>Nota importante: La opción CHAIN MERGE funciona bien con programas BASIC binarios. Sin embargo, con programas BASIC en formato ASCII no funciona bien en los 464 y 664: hay un bug en el firmware.
+      </li>
+    </ul>
+    <li>Game Design</li>
+    <ul>
+      <li>Proponemos un formato de documento para Game Design con una estructura concreta ayudar a estructurar nuestras ideas de juego.
+      </li><li>Revisamos el documento y sus apartados y vemos la utilidad y que significa cada uno de ellos.
+      </li><li>Vemos los principios iniciales de Game Design de nuestro juego, Dungeon Castles.
+      </li><li>Vemos bocetos y modelos a utilizar para el diseño y desarrollo del juego.
+      </li><li>Hablamos de lo importante que es tener modelos de referencia en los que basarse para las mecánicas.        
+      </li><li>Vemos la historia de los castillos de Alicante, base de nuestro juego Dungeon Castles.
+      </li><li>Revisamos los apartados del documento en el caso de nuestro juego y cómo los hemos rellenado inicialmente.
+      </li><li>Entendemos cómo evitar el bloating (sobrecrecimiento) de características
+      </li><li>Hablamos del mapeado en nuestro juego y ponemos ejemplos de algunos tipos de mapa en su diseño inicial.
+      </li><li>Diseñamos unos tipos concretos de objetos que deben haber en nuestro juego y cómo funcionarán.
+      </li><li>Seleccionamos unas mecánicas concretas de combate y debatimos sobre ellas
+      </li><li>Vemos también como muy importante el diseño iterativo y cómo afrontar correctamente las iteraciones.
+      </li><li>Explicamos lo que es el Mínimo producto viable (MVP en inglés) y cómo definirlo y trabajar en él para empezar.        
+      </li><li>Debatimos sobre cómo diseñar un MVP y cómo seleccionar mecánicas simples para que sea un produto completo
+      </li>
+    </ul>
+    <li>Technical Design (Diagramas y ECS)</li>
+    <ul>
+      <li>Vemos por qué es importante realizar diagramas técnicos del funcionamiento de nuestro código
+      </li><li>Conforme un programa crece es imposible mantener en la cabeza todo el código, lo que hace y cómo funciona
+      </li><li>Explicamos que los diagramas no se elaboran como siempre se explica en ingeniería: primero el diagrama completo y luego pogramar. Esto no funciona habitualmente así.
+      </li><li>Entendemos que los diagramas técnicos deben ser algo vivo, que se mantiene actualizado y que se usa para reflexionar, diseñar y para entender nuestro código al completo.
+      </li><li>Vemos un ejemplo de diagrama de llamadas realizado con draw.io
+      </li><li>Con el diagrama entendemos la estructura de llamadas entre las distintas partes del código y las dependencias que eso implica        
+      </li><li>Vemos que la estructura de nuestro juego se está complicando mucho y eso teniendo en cuenta que sólo hemos hecho unas pocas partes.
+      </li><li>Para evitar que la estructura siga complicándose y el código llegue pronto a ser inmanejable, vemos otras posibles estructuras mejores
+      </li><li>Hablamos del modelo Entidad-Componente-Sistema (ECS: Entity-Component-System).
+      </li><li>Explicamos desde 0 cómo se estructura una aplicación siguiendo el modelo ECS y qué siginifican los distintos componentes.
+      </li><li>Resolvemos dudas respecto al planteamiento del modelo y casos concretos.
+      </li><li>Hablamos de las diferencias entre ECS y el modelo de Componentes de Unity3D y Unreal Engine: no son el mismo modelo
+      </li>
+    </ul>
+    <li>Migración a ECS</li>
+    <ul>
+      <li>Intentamos migrar el código a Entity-Component-System
+      </li><li>Vemos y analizamos las dificultades que surgen y lo que eso significa respecto a lo acoplado que estaba nuestro código anterior
+      </li><li>Intentamos desacoplar el movimiento del jugador del código que pinta, comprueba colisiones y realiza ataques a otros personajes
+      </li><li>Pese a intentarlo, se nos complica tanto que ni siquiera podemos llegar a probar lo que desarrollamos.
+      </li><li>Con este ejemplo entendemos lo importante que es separar las responsabilidades y que cada sistema haga exclusivamente sus funciones sin acoplarse a lo que hace el resto del código.
+      </li><li>Esto nos dejaver las ventajas de tener los sistemas separados a la hora de desarrollar nuestro juego.
+      </li>
+    </ul>
+    <li>C:</li>
+    <ul>
+      <li>Explicamos el funcionamiento de los includes y su utilidad a la hora de tener cosas definidas en varios ficheros.
+      </li><li>Entendemos la diferencia real entre ficheros de cabecera (.H) y unidades de traducción (.C): se trata de una convención útil
+      </li><li>Empezamos a separar el código que tenemos en C en varios ficheros para poder tenerlo organizado.
+      </li><li>Esto nos permitirá en el futuro modelo ECS tener todos los sistemas bien separados y organizados.
+      </li><li>Vemos la diferencia entre usar comillas y mayor/menor a la hora de incluir ficheros.
+      </li><li>Entendemos que el proceso de compilación se ocupa de ficheros uno a uno, por separado. Ningún fichero conoce lo que hay en los demás ficheros. Para eso utilizamos las declaraciones añadidas en los ficheros de cabecera.
+      </li><li>Incidimos en la diferencia entre declaraciones y definiciones y su importancia.
+      </li><li>Vemos el uso de extern para poder declarar variables sin definirlas.
+      </li><li>Explicamos cómo usar include guards en C para evitar que un fichero de cabecera sea procesado más de una vez allá donde es incluído.
+      </li>
+    </ul>
+  </ul>
+</ul>
+</details>
+
+
 ## EPISODIO 4: Especial Gráficos UDG [#AGC04](https://twitter.com/hashtag/AGC04)
 
 <a href="https://www.youtube.com/watch?v=Ru-5L9sABVU"><img align="left" src="https://github.com/AmstradGameDevChallenge/BASICvsC-RPG/blob/master/materials/scrshots/agc04_gamesprites_thumb.png" alt="Amstrad GameDev Challenge: BASIC vs C. Episodio 4. Especial Gráficos UDG. #AGC04"/></a>
@@ -85,7 +179,6 @@ Seguidnos en Twitter: [@FranGallegoBR](https://twitter.com/FranGallegoBR), [@Hec
   </ul>
 </ul>
 </details>
-
 
 ## AVANCE EPISODIO 4: Misterio Memory Leak en BASIC
 
