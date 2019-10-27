@@ -12,7 +12,7 @@ Seguidnos en Twitter: [@FranGallegoBR](https://twitter.com/FranGallegoBR), [@Hec
 [**>> Vídeo <<**](https://www.youtube.com/watch?v=YQ6obw_M9B4)
 
 [**>> Código fuente <<**](https://github.com/AmstradGameDevChallenge/BASICvsC-RPG/archive/agc05.zip)
-|| [**>> Plantilla Doc. Diseño <<**](http://bit.ly/AGC-GDD_es)
+|| [**>> Plantilla Doc. Diseño <<**](http://bit.ly/AGC-GDD_es) || [**>> Game Design Doc. Template <<**](http://bit.ly/AGC-GDD_en)
 <br/><br/><br/>
 
 <details><summary><strong>&gt;&gt;&gt; Contenidos detallados &lt;&lt;&lt;</strong></summary>
