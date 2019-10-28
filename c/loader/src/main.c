@@ -142,8 +142,8 @@ void loadScreens() {
 // some ls -l command or similar)
 //
 #define GAME_LOAD_ADDRESS  (void*)0x4000
-#define GAME_RUN_ADDRESS   (void*)0x433B 
-#define GAME_BIN_SIZE      4924
+#define GAME_RUN_ADDRESS   (void*)0x42B6 
+#define GAME_BIN_SIZE      4921
 
 ////////////////////////////////////////////////
 // LOADER MAIN ENTRY POINT
