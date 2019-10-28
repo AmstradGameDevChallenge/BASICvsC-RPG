@@ -33,7 +33,7 @@
 1 ' And also frees all BASIC's reserved space (including variables)
 120 MEMORY m:CLEAR
 1 ' And now LOAD and RUN Game Loader to start the game
-130 RUN"!GL.BAS"
+130 RUN"!GLOADER.BAS"
 140 END
 
 1 ' ACTIVE WAITING LOOP
