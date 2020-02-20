@@ -1,6 +1,6 @@
+#ifndef ASSETS_UDG_H__
+#define ASSETS_UDG_H__
 
-#ifndef __ASSETS_UDG_H__
-#define __ASSETS_UDG_H__
 #include <cpctelera.h>
 extern char const sprites[];
 

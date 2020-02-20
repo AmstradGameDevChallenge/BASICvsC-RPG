@@ -10,9 +10,8 @@ void sys_input_init() {
 void sys_input_update() {
    struct TEntity *entities = man_get_entities();
    
-   do
-      cpct_scanKeyboard();
-   while (!cpct_isKeyPressed(Key_O) && !cpct_isKeyPressed(Key_P) && !cpct_isKeyPressed(Key_Q) && !cpct_isKeyPressed(Key_A));
+   // Wait for any key
+   pressAnyKey();
    
    if (cpct_isKeyPressed(Key_O)) {
       entities[0].phys.vx = -1;

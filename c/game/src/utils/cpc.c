@@ -61,3 +61,9 @@ void initMode() {
       call #0xBB4E
    __endasm;
 }
+
+void pressAnyKey() {
+   do
+      cpct_scanKeyboard();
+   while (!cpct_isAnyKeyPressed_f());
+}

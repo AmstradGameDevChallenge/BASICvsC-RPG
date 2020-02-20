@@ -6,15 +6,20 @@
 #define MAX_ENTITIES 10
 
 u8 m_num_entities;
+
+// Store all entities in one array
+// Assume entity[0] is the player
 struct TEntity entities[MAX_ENTITIES];
 
+// Entity manager init
 void man_entity_init() {
    m_num_entities = 0;
 }
 
+// Create a new entity
 void man_entity_create() {
-   entities[m_num_entities].pos.x = 1;
-   entities[m_num_entities].pos.y = 1;
+   entities[m_num_entities].pos.x = 2;
+   entities[m_num_entities].pos.y = 3;
    entities[m_num_entities].phys.vx = 0;
    entities[m_num_entities].phys.vy = 0;
    entities[m_num_entities].ren.w = 1;

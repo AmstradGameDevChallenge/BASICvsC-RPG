@@ -1,6 +1,6 @@
 
-#ifndef __UTILS_CPC_H__
-#define __UTILS_CPC_H__
+#ifndef UTILS_CPC_H__
+#define UTILS_CPC_H__
 
 #include <cpctelera.h>
 
@@ -23,5 +23,7 @@ void tontof(u8 t);
 void renderString(u8 ch, u8 n);
 
 void initMode();
+
+void pressAnyKey();
 
 #endif

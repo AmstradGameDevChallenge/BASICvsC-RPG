@@ -1,6 +1,6 @@
 
-#ifndef __TENTITY_H__
-#define __TENTITY_H__
+#ifndef TENTITY_H__
+#define TENTITY_H__
 
 #include <cpctelera.h>
 
