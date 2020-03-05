@@ -19,11 +19,11 @@
 1 '
 1 ' -------------------------------
 1 ' RENDER MAP
-20200 k=ms:mc=0:PRINT ton$:CLS
+20200 k=ms:mc=0:PRINT ton$:CLS:f=@m(0,ms)
 20210 FOR i=0TO 19
 20220 FOR j=0TO 39
-20230 IF m(j,i,k)>32THEN PRINT s$(3); ELSE PRINT " ";
-20240 NEXT j:NEXT i:PRINT tof$;
+20230 IF PEEK(f)>32THEN PRINT s$(3); ELSE PRINT " ";
+20240 f=f+1:NEXT j:NEXT i:PRINT tof$;
 20250 RETURN
 1 '
 1 ' -------------------------------
