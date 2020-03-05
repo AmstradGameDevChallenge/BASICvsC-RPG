@@ -34,24 +34,30 @@ void sys_render_welcome_message() {
 }
 
 void sys_render_map() {
-   const u8* map = man_get_current_map();
+   const u8* map = man_map_get_current_map();
    u16 i;
 
-   // Quick fix +800 for testing
-   // map += 800;
-
+   tontof(1);
    for (i = 0; i < 20*40; i++) {
-      putchar(map[i]);
+      if (map[i] > 32) {
+         printf(&sprites[42]);
+      } else {
+         putchar(' ');
+      }
    }
+   tontof(0);
 }
 
 void sys_render_update() {
-   struct TEntity *entities = man_get_entities();
+   struct TEntity *entities = man_entity_get_entities();
    
-   // cls();
-   
-   for (int i = 0; i < man_get_num_entities(); i++) {
+   for (int i = 0; i < man_entity_get_num_entities(); i++) {
       struct TEntity *e = &entities[i];
+      // Clear entity
+      locate(e->prev.x, e->prev.y);
+      printf("  %c%c%c  ", 8, 8, 10);
+
+      // Render entity
       locate(e->pos.x, e->pos.y);
       tontof(1);
       printf("%s", &sprites[e->ren.sprite]);

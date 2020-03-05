@@ -18,26 +18,29 @@ void man_entity_init() {
 
 // Create a new entity
 void man_entity_create() {
-   entities[m_num_entities].pos.x = 2;
-   entities[m_num_entities].pos.y = 3;
-   entities[m_num_entities].phys.vx = 0;
-   entities[m_num_entities].phys.vy = 0;
-   entities[m_num_entities].ren.w = 1;
-   entities[m_num_entities].ren.h = 1;
-   entities[m_num_entities].ren.sprite = 0;
-   entities[m_num_entities].energy = 100;
-   entities[m_num_entities].attack = 20;
-   entities[m_num_entities].deffense = 10;
-   entities[m_num_entities].force = 0; 
+   struct TEntity *e = &entities[m_num_entities];
+   e->pos.x = 2;
+   e->pos.y = 3;
+   e->prev.x = e->pos.x;
+   e->prev.y = e->pos.y;
+   e->phys.vx = 0;
+   e->phys.vy = 0;
+   e->ren.w = 2;
+   e->ren.h = 2;
+   e->ren.sprite = 0;
+   e->energy = 100;
+   e->attack = 20;
+   e->deffense = 10;
+   e->force = 0; 
    
    m_num_entities++;
    
 }
 
-struct TEntity* man_get_entities() {
+struct TEntity* man_entity_get_entities() {
    return entities;
 }
 
-u8 man_get_num_entities() {
+u8 man_entity_get_num_entities() {
    return m_num_entities;
 }

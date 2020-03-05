@@ -9,7 +9,9 @@
 #include <sys/RenderSystem.h>
 #include <sys/InputSystem.h>
 #include <sys/PhysicsSystem.h>
+#include <sys/CollisionSystem.h>
 #include <man/EntityManager.h>
+#include <man/MapManager.h>
 #include <utils/cpc.h>
 
 void main() {
@@ -38,6 +40,9 @@ void main() {
       
       // Update physics
       sys_physics_update();
+
+      // Update collisions
+      sys_collision_update();
 
       // Update render system
       sys_render_update();

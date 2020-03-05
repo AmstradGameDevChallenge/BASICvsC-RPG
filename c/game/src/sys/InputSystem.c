@@ -1,5 +1,6 @@
 
 #include <cpctelera.h>
+#include <utils/cpc.h>
 #include <cmp/TEntity.h>
 #include <man/EntityManager.h>
 
@@ -8,7 +9,7 @@ void sys_input_init() {
 }
 
 void sys_input_update() {
-   struct TEntity *entities = man_get_entities();
+   struct TEntity *entities = man_entity_get_entities();
    
    // Wait for any key
    pressAnyKey();

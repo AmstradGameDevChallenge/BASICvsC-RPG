@@ -3,6 +3,6 @@
 
 #include <cpctelera.h>
 
-extern const u8* TMap[2][40*20];
+extern const u8 TMap[2][40*20];
 
 #endif

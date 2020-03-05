@@ -10,13 +10,13 @@ u8 m_current_map;
 
 // Map manager init
 void man_map_init() {
-   m_current_map = 1;
+   m_current_map = 0;
 }
 
-const u8* man_get_current_map() {
+const u8* man_map_get_current_map() {
    return TMap[m_current_map];
 }
 
-u8 man_get_num_maps() {
+u8 man_map_get_num_maps() {
    return MAX_MAPS;
 }

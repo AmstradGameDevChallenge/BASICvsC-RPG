@@ -18,6 +18,7 @@ struct TRender {
 
 struct TEntity {
   struct TPosition pos;
+  struct TPosition prev;
   struct TPhysics phys;
   struct TRender ren;
   u8 energy;
