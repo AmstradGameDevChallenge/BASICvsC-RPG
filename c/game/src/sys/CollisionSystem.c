@@ -13,7 +13,8 @@ void sys_collision_update() {
     
     for (u8 i = e->pos.x; i < (e->pos.x + e->ren.w); i++ ) {
         for (u8 j = e->pos.y; j < (e->pos.y + e->ren.h); j++ ) {
-            if (map[(j-1)*40 + (i-1)] != ' ') {
+                         // map[ (j-1)*40 + (i-1)] != ' '
+            if (cpct_getBit(map, (j-1)*40 + (i-1)) != 0) {
                 e->pos.x = e->prev.x;
                 e->pos.y = e->prev.y;
             }

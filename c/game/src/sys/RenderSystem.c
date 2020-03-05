@@ -39,7 +39,8 @@ void sys_render_map() {
 
    tontof(1);
    for (i = 0; i < 20*40; i++) {
-      if (map[i] > 32) {
+    //if (map[i] > 32) {
+      if (cpct_getBit(map, i) != 0) {
          printf(&sprites[42]);
       } else {
          putchar(' ');
