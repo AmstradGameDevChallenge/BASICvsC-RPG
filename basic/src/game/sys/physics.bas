@@ -5,15 +5,15 @@
 1 ' 
 1 ' INIT:   26000
 1 ' UPDATE: 26100
-
+1 '
 1 ' -------------------------------
 1 ' INIT
 26000 RETURN
-
+1 '
 1 ' -------------------------------
 1 ' UPDATE
 26100 FOR i=1TO een-1
-26110 ex(i)=ex(i)+evx(i):evx(i)=0
-26120 ey(i)=ey(i)+evy(i):evy(i)=0
+26110 epx(i)=ex(i):ex(i)=ex(i)+evx(i):evx(i)=0
+26120 epy(i)=ey(i):ey(i)=ey(i)+evy(i):evy(i)=0
 26130 NEXT
 26140 RETURN
