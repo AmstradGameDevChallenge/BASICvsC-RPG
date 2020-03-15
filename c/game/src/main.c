@@ -16,7 +16,7 @@
 
 void main() {
    
-   // Init managers and systems
+   // Init managers and systems :)
    man_entity_init();
    sys_render_init();
    sys_physics_init();
