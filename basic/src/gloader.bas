@@ -10,11 +10,11 @@
 1 ' 0xBBFF: SCR INITIALIZE
 1 ' 0xBB4E: TXT INITIALIZE
 60000 SYMBOL AFTER 256:CALL &BBFF:CALL &BB4E
-60010 SYMBOL AFTER 246:DEFINT a-z
+60010 SYMBOL AFTER 237:DEFINT a-z
 1 ' Temporary variables
 60030 f=0:i=f:j=f:k=f:a$=""
 1 ' Enemy structure definition
-60040 eem=3:een=0
+60040 eem=4:een=0
 60050 i=eem
 60060 DIM ex(i),ey(i),epx(i),epy(i),evx(i),evy(i)
 60070 DIM ew(i),eh(i),es(i)
@@ -32,25 +32,54 @@
 
 1 '
 1 ' USER DEFINED GRAPHICS
+1 ' Main Character
 60210 SYMBOL 255,3,7,7,7,3,1,3,7
 60211 SYMBOL 254,128,192,32,224,224,225,194,212
 60212 SYMBOL 253,11,7,3,3,2,62,32,0
 60213 SYMBOL 252,232,148,128,224,48,16,16,24
+1 ' WALL BLOCK 2-colours
 60214 SYMBOL 251,126,131,131,131,131,131,255,126
 60215 SYMBOL 250,0,124,96,64,64,68,0,0
+1 ' ENEMY 
 60216 SYMBOL 249,7,13,11,15,4,15,71,179
 60217 SYMBOL 248,224,176,208,240,32,240,226,204
 60218 SYMBOL 247,12,47,87,7,35,67,103,159
 60219 SYMBOL 246,48,244,236,224,193,197,234,241
+1 ' DOOR
+60220 SYMBOL 245,&1F,&3F,&70,&61,&63,&67,&67,&65
+60221 SYMBOL 244,&F8,&3C,&FE,&F6,&B6,&B6,&B6,&B6
+60222 SYMBOL 243,&65,&65,&65,&65,&F5,&05,&05,&06
+60223 SYMBOL 242,&B6,&B6,&B6,&B6,&B7,&B8,&C0,&00
+1 ' ENEMY BAT
+60224 SYMBOL 241,&00,&00,&00,&10,&32,&71,&7B,&7F
+60225 SYMBOL 240,&00,&00,&00,&08,&4C,&8E,&DE,&FE
+60226 SYMBOL 239,&4B,&61,&21,&00,&00,&01,&07,&01
+60227 SYMBOL 238,&D2,&86,&84,&00,&00,&80,&E0,&80
+1 ' WALL BLOCK 
+60228 SYMBOL 237,&40,&A0,&0A,&1D,&54,&22,&48,&14
 1 '
 1 ' DEFINE STRING SPRITES
-60270 s$(0)=chr$(15)+chr$(1)+chr$(255)+chr$(254)+chr$(8)+chr$(8)+chr$(10)+chr$(253)+chr$(252)+chr$(11)
-60275 s$(1)=chr$(15)+chr$(2)+chr$(249)+chr$(248)+chr$(8)+chr$(8)+chr$(10)+chr$(247)+chr$(246)+chr$(11)
-60280 s$(2)=chr$(15)+chr$(3)+chr$(249)+chr$(248)+chr$(8)+chr$(8)+chr$(10)+chr$(247)+chr$(246)+chr$(11)
-60285 s$(3)=chr$(15)+chr$(1)+chr$(251)+chr$(8)+chr$(15)+chr$(2)+chr$(250)
-60287 s$(4)=chr$(15)+chr$(1)+chr$(32)+chr$(32)+chr$(8)+chr$(8)+chr$(10)+chr$(32)+chr$(32)+chr$(11)
-60290 ton$=chr$(22)+chr$(1)
-60300 tof$=chr$(22)+chr$(0)
+1 ' Transparency ON&OFF
+60270 ton$=chr$(22)+chr$(1)
+60275 tof$=chr$(22)+chr$(0)
+1 ' Main Character
+60280 s$(0)=chr$(15)+chr$(1)+chr$(255)+chr$(254)+chr$(8)+chr$(8)+chr$(10)+chr$(253)+chr$(252)+chr$(11)
+1 ' Regular Enemy (2 colours)
+60281 s$(1)=chr$(15)+chr$(2)+chr$(249)+chr$(248)+chr$(8)+chr$(8)+chr$(10)+chr$(247)+chr$(246)+chr$(11)
+60282 s$(2)=chr$(15)+chr$(3)+chr$(249)+chr$(248)+chr$(8)+chr$(8)+chr$(10)+chr$(247)+chr$(246)+chr$(11)
+1 ' WALL BLOCK
+1 ' 60283 s$(3)=chr$(15)+chr$(1)+chr$(251)+chr$(8)+chr$(15)+chr$(2)+chr$(250)
+60283 s$(3)=chr$(15)+chr$(2)+chr$(237)
+1 ' SPRITE USED TO CLEAN
+60284 s$(4)=chr$(15)+chr$(1)+chr$(32)+chr$(32)+chr$(8)+chr$(8)+chr$(10)+chr$(32)+chr$(32)+chr$(11)
+1 ' ENEMY BAT
+60285 s$(5)=chr$(15)+chr$(2)+chr$(241)+chr$(240)+chr$(8)+chr$(8)+chr$(10)+chr$(239)+chr$(238)+chr$(11)
+1 ' DOOR
+60286 s$(6)=chr$(15)+chr$(1)+chr$(245)+chr$(244)+chr$(8)+chr$(8)+chr$(10)+chr$(243)+chr$(242)+chr$(11)
+1 ' Bat Enemy
+1 '
+1 ' LOAD GAME
+1 ' 
 60310 PRINT "LOADING GAME. PLEASE WAIT..."
 60320 CHAIN MERGE"!GAME.BAS",10,DELETE
 1 '
