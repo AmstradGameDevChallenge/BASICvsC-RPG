@@ -12,7 +12,7 @@
 60000 SYMBOL AFTER 256:CALL &BBFF:CALL &BB4E
 60010 SYMBOL AFTER 237:DEFINT a-z
 1 ' Temporary variables
-60030 f=0:i=f:j=f:k=f:a$=""
+60030 f=0:i=f:j=f:k=f:ii=0:jj=0:kk=0:a$=""
 1 ' Enemy structure definition
 60040 eem=4:een=0
 60050 i=eem
@@ -22,22 +22,17 @@
 1 ' Maps
 60085 PRINT "LOADING MAPS..."
 60090 ms=1:mx=2:mc=f
-60100 DIM m(399,mx-1):f=@m(0,0):i=&C000
-60110 LOAD "level1.bin",i
-60120 FOR j=i TO i+799
+60100 DIM mm(49,mx-1),m(399):f=@mm(0,0):i=&C000
+60110 LOAD "levels.bin",i
+60120 FOR j=i TO i+100*mx-1
 60130 POKE f,PEEK(j):f=f+1
 60140 NEXT
-60150 FOR j=i TO i+799
-60160 POKE f,PEEK(j):f=f+1
-60170 NEXT
-
 1 ' 60110 FOR i=0TO mx-1
 1 ' 60120 FOR k=0TO 19:READ a$
 1 ' 60130 FOR j=0TO 39
-1 ' 1 '60140 m(j,k,i)=ASC(MID$(a$,j+1,1))
+1 ' 60140 m(j,k,i)=ASC(MID$(a$,j+1,1))
 1 ' 60140 POKE f,ASC(MID$(a$,j+1,1)):f=f+1
 1 ' 60150 NEXT:NEXT:NEXT
-
 1 '
 1 ' USER DEFINED GRAPHICS
 1 ' Main Character

@@ -19,7 +19,7 @@
 1 '
 1 ' -------------------------------
 1 ' RENDER MAP
-20200 k=ms:mc=0:PRINT ton$:CLS:f=@m(0,ms)
+20200 k=ms:mc=0:PRINT ton$:CLS:f=@m(0)
 20210 FOR i=0TO 19
 20220 FOR j=0TO 39
 20230 IF PEEK(f)THEN PRINT s$(3); ELSE PRINT " ";

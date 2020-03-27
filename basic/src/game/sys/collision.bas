@@ -13,7 +13,7 @@
 1 '
 1 ' -------------------------------
 1 ' UPDATE  
-33100 f=@m(0,ms)
+33100 f=@m(0)
 33110 FOR x=ex(1)-1 TO ex(1)+ew(1)-2
 33120 FOR y=ey(1)-1 TO ey(1)+eh(1)-2
 33130 IF PEEK(f+40*y+x)THEN GOSUB 33200:RETURN

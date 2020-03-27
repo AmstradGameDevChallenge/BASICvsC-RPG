@@ -131,7 +131,25 @@ function createCDT() {
    add2CDT cpc    "SCREEN03.BIN"    ${BIN}/screen03.bin
    add2CDT cpc    "SCREEN04.BIN"    ${BIN}/screen04.bin
    add2CDT cpctxt "GLOADER.BAS"     ${OBJ}/gloader.bas
+   add2CDT cpc    "LEVELS.BIN"      ${BIN}/levels.bin
    add2CDT cpctxt "GAME.BAS"        ${OBJ}/game.bas
+}
+
+#--------------------------------------------------------------------------
+# Converts all tilemaps in assets/levels into binary as required
+#
+function convertAllMaps () {
+   # CREATE BIN FOLDER IF IT DOES NOT EXIST
+   mkdir -p ./${BIN}/levels/
+
+   # IMAGE CONVERSIONS
+   for TMX in assets/levels/*tmx; do
+      cpct_tmx2data "${TMX}" -gb -ba 1 -of ./${BIN}/levels/
+   done
+
+   # CONCAT LEVELS
+   cat ./${BIN}/levels/*.bin > ./${BIN}/levels.bin
+   rm ./${BIN}/levels/*.bin
 }
 
 #--------------------------------------------------------------------------
@@ -191,11 +209,13 @@ case "$PARAM" in
    "CDT") 
       prepareAllBasSourceFiles
       convertAllImages
+      convertAllMaps
       createCDT
    ;;
    "DSK") 
       prepareAllBasSourceFiles
       convertAllImages
+      convertAllMaps
       createDSK
    ;;
    "CLEAN")
