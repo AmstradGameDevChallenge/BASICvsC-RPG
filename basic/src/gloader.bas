@@ -21,14 +21,22 @@
 60080 DIM ea(i),ed(i),ee(i),ef(i)
 1 ' Maps
 60085 PRINT "LOADING MAPS..."
-60090 ms=1:mm=2:mc=f
-60100 DIM m(399,mm-1):f=@m(0,0)
-60110 FOR i=0TO mm-1
-60120 FOR k=0TO 19:READ a$
-60130 FOR j=0TO 39
-1 '60140 m(j,k,i)=ASC(MID$(a$,j+1,1))
-60140 POKE f,ASC(MID$(a$,j+1,1)):f=f+1
-60150 NEXT:NEXT:NEXT
+60090 ms=1:mx=2:mc=f
+60100 DIM m(399,mx-1):f=@m(0,0):i=&C000
+60110 LOAD "level1.bin",i
+60120 FOR j=i TO i+799
+60130 POKE f,PEEK(j):f=f+1
+60140 NEXT
+60150 FOR j=i TO i+799
+60160 POKE f,PEEK(j):f=f+1
+60170 NEXT
+
+1 ' 60110 FOR i=0TO mx-1
+1 ' 60120 FOR k=0TO 19:READ a$
+1 ' 60130 FOR j=0TO 39
+1 ' 1 '60140 m(j,k,i)=ASC(MID$(a$,j+1,1))
+1 ' 60140 POKE f,ASC(MID$(a$,j+1,1)):f=f+1
+1 ' 60150 NEXT:NEXT:NEXT
 
 1 '
 1 ' USER DEFINED GRAPHICS
@@ -88,6 +96,8 @@
 1 ' i, j, k
 1 '--Entity Attributes (e prefix):
 1 ' Position
+1 ' epx(): entity previous x-coord
+1 ' epy(): entity previous y-coord
 1 ' ex(): entity x-coord
 1 ' ey(): entity y-coord
 1 ' Physics
@@ -106,11 +116,12 @@
 1 ' eem: Entity Max Number
 1 ' een: Entity number
 1 '--Maps and Levels
-1 ' m(x,y,m): Map definitions width, height, map number
+1 ' mm(p,m): Map definitions position, map number
 1 ' ms: map selected
-1 ' mm: maximum map number
+1 ' mx: maximum map number
 1 ' mc: map changed (flag indicated map has changed)
 1 '--General Variables:
+1 ' i,j,k: Temporaries
 1 ' f: Temporary force calculation
 1 ' a$: Temporary user INPUT
 1 ' s$(): Array of global sprite strings
