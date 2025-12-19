@@ -1,0 +1,15 @@
+1 ' Runner Game
+1 '
+
+1 ' INIT
+100 GOSUB 65000
+
+1 ' =====
+1 ' == MAIN LOOP
+1 ' ====
+1000 WHILE 1
+1 ' DRAW
+1010 GOSUB 10000
+1 ' UPDATE
+1020 GOSUB 20000
+1100 WEND
